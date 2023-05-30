@@ -11,8 +11,23 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
+    authorize @guitar
     @guitar.destroy
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
+  end
+
+  def new
+    @guitar = Guitar.new
+  end
+
+  def create
+    @guitar.new(guitar_params)
+    @guitar.user = current_user
+    if @guitar.save
+      redirect_to @guitar
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -22,7 +37,7 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, model:, description:, material:, pickup:, right_handed:, year:, country:, price_per_day:)
+    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day)
   end
 
 end
