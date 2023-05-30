@@ -1,12 +1,31 @@
-  <p><%= @guitar.name %></p>
-  <p><%= @guitar.price_per_day %></p>
-  <p><%= @guitar.model %></p>
-  <p><%= @guitar.description %></p>
-  <p><%= @guitar.material %></p>
-  <p><%= @guitar.pickup %></p>
+<div class="container mt-5">
+  <div class="grid-product">
+      <div class="gallery-image">
+        <%= image_tag src="guitar.webp", width: 160 %>
+        <%= image_tag src="guitar.webp", width: 160 %>
+        <%= image_tag src="guitar.webp", width: 160 %>
+      </div>
+      <%= image_tag src="guitar.webp", width: 500 %>
+
+
+    <div class="product-info">
+      <h1><%= @guitar.name %></h1>
+      <span><%= @guitar.model %></span>
+      <p><%= @guitar.description %></p>
+      <span class="price">R$ <%= @guitar.price_per_day %></span>
+      <a class="btn-rent" href="#">Alugar</a>
+      <div class="details">
+        <ul>
+          <li>Material: <%= @guitar.material %></li>
+          <li>Pickup: <%= @guitar.pickup %></li>
+          <li>Ano: <%= @guitar.year %></li>
+          <li>País <%= @guitar.country %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
   <p><%= @guitar.right_handed %></p>
-  <p><%= @guitar.year %></p>
-  <p><%= @guitar.country %></p>
   <p>
 <% if policy(@guitar).edit? %>
   <%= link_to "Edit this restaurant", edit_guitar_path(@guitar) %> |
