@@ -6,6 +6,7 @@ class GuitarPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def destroy?
     record.user == user
   end
@@ -19,6 +20,14 @@ class GuitarPolicy < ApplicationPolicy
 
   def update?
     record.user == user
+  end
+
+  def show?
+    true
+  end
+
+  def my_guitars?
+    true
   end
 
   def create?
