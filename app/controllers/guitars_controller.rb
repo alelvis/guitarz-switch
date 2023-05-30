@@ -7,6 +7,9 @@ class GuitarsController < ApplicationController
     @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
   end
 
+  def show
+  end
+
   def destroy
     authorize @guitar
     @guitar.destroy
@@ -36,4 +39,5 @@ class GuitarsController < ApplicationController
   def guitar_params
     params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day)
   end
+
 end
