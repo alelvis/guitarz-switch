@@ -1,9 +1,10 @@
 <ul>
 <%# <%= cl_image_tag current_user.photo.key, alt: "dropdown menu", width: 50, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <% @guitars.each do |guitar| %>
-    <%# <%= cl_image_tag guitar.photo.key, crop: :fill %>
-    <li><%= link_to guitar.name, guitar_path(guitar) %> <%= link_to 'delete', guitar_path(guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %></li>
-
-    <%= button_to "Lend a guitar", guitar, method: :delete if policy(guitar).destroy? %>
+    <li>
+      <%= link_to guitar.name, guitar_path(guitar) %>
+      <p></p>
+    </li>
   <% end %>
 </ul>
+<%= link_to 'Lend a guitar', new_guitar_path, class: 'btn btn-primary' %>

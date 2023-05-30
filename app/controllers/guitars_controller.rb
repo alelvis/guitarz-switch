@@ -7,6 +7,11 @@ class GuitarsController < ApplicationController
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id))
   end
 
+  def my_guitars
+    rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
+    @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
+  end
+
   def show
   end
 
@@ -39,6 +44,6 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day, :photo)
+    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day, :photo)
   end
 end

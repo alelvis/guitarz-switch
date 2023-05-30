@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :guitars, except: :index
 
+  get '/my_listings', to: 'guitars#my_guitars', as: :my_guitars
 end
