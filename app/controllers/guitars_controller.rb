@@ -8,6 +8,7 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
+    authorize @guitar
     @guitar.destroy
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
@@ -17,7 +18,7 @@ class GuitarsController < ApplicationController
   def set_guitar
     @guitar = Guitar.find(params[:id])
   end
-  
+
   def guitar_params
     params.require(:guitar).permit(:name, :brand, model:, description:, material:, pickup:, right_handed:, year:, country:, price_per_day:)
   end
