@@ -7,6 +7,9 @@ class GuitarsController < ApplicationController
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id))
   end
 
+  def show
+  end
+
   def destroy
     @guitar.destroy
     authorize @guitar
@@ -40,4 +43,5 @@ class GuitarsController < ApplicationController
   def guitar_params
     params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day, :photo)
   end
+
 end
