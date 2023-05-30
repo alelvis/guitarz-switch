@@ -1,26 +1,37 @@
 .grid-product {
  display: grid;
- grid-template-columns: 160px, 1fr 1fr;
+ grid-template-columns: 160px 1fr 1fr;
  gap: 40px;
+}
+
+.gallery-image {
+display: flex;
+flex-direction: column;
+gap: 20px
 }
 
 .product-info {
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
 }
 
 p {
-  margin: 20px 0 20px 0;
+  margin: 40px 0 40px 0;
 }
 
 .price {
-  font-size: 20px;
+  font-size: 24px;
+  display: block;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
+}
+
+.details {
+  margin-top: 40px;
 }
 
 
