@@ -1,14 +1,9 @@
-<div class="container">
-  <h1>Guitar</h1>
-  <% @guitar.each do |guitar| %>
-    <p><%= guitar.name %></p>
-    <p><%= guitar.price_per_day %></p>
-    <p><%= guitar.model %></p>
-    <p><%= guitar.description %></p>
-    <p><%= guitar.material %></p>
-    <p><%= guitar.pickup %></p>
-    <p><%= guitar.right_handed %></p>
-    <p><%= guitar.year %></p>
-    <p><%= guitar.country %></p>
-  <%/end%>
-</div>
+  <p><%= @guitar.name %></p>
+  <p><%= @guitar.price_per_day %></p>
+  <p><%= @guitar.model %></p>
+  <p><%= @guitar.description %></p>
+  <p><%= @guitar.material %></p>
+  <p><%= @guitar.pickup %></p>
+  <p><%= @guitar.right_handed %></p>
+  <p><%= @guitar.year %></p>
+  <p><%= @guitar.country %></p>

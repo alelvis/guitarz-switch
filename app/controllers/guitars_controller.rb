@@ -8,7 +8,6 @@ class GuitarsController < ApplicationController
   end
 
   def show
-    @guitar = Guitar.new
   end
 
   def destroy
