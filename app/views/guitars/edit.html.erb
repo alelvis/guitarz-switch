@@ -1,8 +1,18 @@
   <h1>Edit Guitar</h1>
 
-  <%= render 'form', guitar: @guitar %>
+  <%= simple_form_for @guitar do |f| %>
+    <%= f.input :name %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :material %>
+    <%= f.input :pickup %>
+    <%= f.input :right_handed, as: :boolean %>
+    <%= f.input :year, as: :integer %>
+    <%= f.input :rental_city %>
+    <%= f.input :price_per_day, as: :decimal %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Edit', class: 'btn btn-primary' %>
+  <% end %>
 
-<% if policy(@guitar).edit? %>
-  <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
-<% end %>
-
+    <%= link_to "Back to Guitars","/" %>
