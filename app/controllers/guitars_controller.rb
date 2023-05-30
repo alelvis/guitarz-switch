@@ -25,10 +25,8 @@ class GuitarsController < ApplicationController
     @guitar = Guitar.new(guitar_params)
     @guitar.user = current_user
     if @guitar.save
-      raise
       redirect_to @guitar
     else
-      raise
       render :new, status: :unprocessable_entity
     end
     authorize @guitar
@@ -43,5 +41,4 @@ class GuitarsController < ApplicationController
   def guitar_params
     params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day, :photo)
   end
-
 end
