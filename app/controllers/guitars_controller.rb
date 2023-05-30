@@ -10,9 +10,11 @@ class GuitarsController < ApplicationController
   def my_guitars
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
+    authorize @guitars
   end
 
   def show
+    authorize @guitar
   end
 
   def destroy
@@ -30,10 +32,8 @@ class GuitarsController < ApplicationController
     @guitar = Guitar.new(guitar_params)
     @guitar.user = current_user
     if @guitar.save
-      raise
       redirect_to @guitar
     else
-      raise
       render :new, status: :unprocessable_entity
     end
     authorize @guitar

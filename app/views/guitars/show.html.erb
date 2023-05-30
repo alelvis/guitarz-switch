@@ -7,3 +7,4 @@
   <p><%= @guitar.right_handed %></p>
   <p><%= @guitar.year %></p>
   <p><%= @guitar.country %></p>
+  <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %>
