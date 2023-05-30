@@ -2,6 +2,7 @@
   <% @guitars.each do |guitar| %>
     <li>
       <%= link_to guitar.name, guitar_path(guitar) %>
+      <p><%= guitar.available? ? "Available" : "Rented" %></p>
       <%= link_to 'delete', guitar_path(guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
     </li>
   <% end %>
