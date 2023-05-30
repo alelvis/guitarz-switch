@@ -4,9 +4,9 @@ User.destroy_all
 
 User.create(email: "joao@gmail.com", password: "123123")
 User.create(email: "paulo@gmail.com", password: "123123")
-User.create(email: "cesar@gmail.com", password: "123123")
-User.create(email: "joana@gmail.com", password: "123123")
-User.create(email: "juliana@gmail.com", password: "123123")
+User.create(email: "alphadeny@hotmail.fr", password: "123123")
+User.create(email: "thiago@olatu.com", password: "123123")
+User.create(email: "juliavdheyde@icloud.com", password: "123123")
 
 brands = ["Gibson", "Fender", "Ibanez"]
 models = ["Explorer", "Les Paul", "Telecaster", "Stratocaster", "Jazzmaster", "AF"]

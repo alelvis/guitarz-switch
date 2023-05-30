@@ -1,0 +1,14 @@
+<div class='container'>
+  <%= simple_form_for @guitar do |f| %>
+    <%= f.input :name %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :material %>
+    <%= f.input :pickup %>
+    <%= f.input :right_handed, as: :boolean %>
+    <%= f.input :year, as: :integer %>
+    <%= f.input :price_per_day, as: :decimal %>
+    <%= f.submit  class: 'btn btn-primary' %>
+  <% end %>
+</div>
