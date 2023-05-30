@@ -3,6 +3,9 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -47,6 +50,10 @@ class ApplicationPolicy
     end
 
     private
+
+    def skip_pundit?
+      devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    end
 
     attr_reader :user, :scope
   end
