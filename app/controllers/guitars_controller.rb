@@ -8,6 +8,7 @@ class GuitarsController < ApplicationController
   end
 
   def show
+    authorize @guitar
   end
 
   def destroy
@@ -16,16 +17,18 @@ class GuitarsController < ApplicationController
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
 
-  def edit; end
+  def edit
+    authorize @guitar
+  end
 
-  def uptdate
+  def update
+    authorize @guitar
     if @guitar.update(guitar_params)
-      redirect_to guitar_path(@guitar)
+      redirect_to guitars_path(@guitar)
     else
       render :edit, status: :unprocessable_entity
     end
   end
-
 
   def new
     @guitar = Guitar.new
@@ -34,15 +37,13 @@ class GuitarsController < ApplicationController
 
   def create
     @guitar = Guitar.new(guitar_params)
+    authorize @guitar
     @guitar.user = current_user
     if @guitar.save
-      raise
       redirect_to @guitar
     else
-      raise
       render :new, status: :unprocessable_entity
     end
-    authorize @guitar
   end
 
   private
