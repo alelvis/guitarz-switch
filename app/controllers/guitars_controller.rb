@@ -7,6 +7,10 @@ class GuitarsController < ApplicationController
     @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
   end
 
+  def show
+    @guitar = Guitar.new
+  end
+
   def destroy
     @guitar.destroy
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
@@ -17,13 +21,9 @@ class GuitarsController < ApplicationController
   def set_guitar
     @guitar = Guitar.find(params[:id])
   end
-  
+
   def guitar_params
     params.require(:guitar).permit(:name, :brand, model:, description:, material:, pickup:, right_handed:, year:, country:, price_per_day:)
   end
 
-  def show
-    @guitar = Guitar.find(params[:id])
-    @guitars = Guitar.new
-  end
 end
