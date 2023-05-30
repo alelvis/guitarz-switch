@@ -1,0 +1,8 @@
+  <h1>Edit Guitar</h1>
+
+  <%= render 'form', guitar: @guitar %>
+
+<% if policy(@guitar).edit? %>
+  <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
+<% end %>
+

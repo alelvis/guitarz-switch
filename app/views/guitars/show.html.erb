@@ -7,4 +7,9 @@
   <p><%= @guitar.right_handed %></p>
   <p><%= @guitar.year %></p>
   <p><%= @guitar.country %></p>
+  <p>
+<% if policy(@guitar).edit? %>
+  <%= link_to "Edit this restaurant", edit_guitar_path(@guitar) %> |
+<% end %>
+  </p>
   <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %>

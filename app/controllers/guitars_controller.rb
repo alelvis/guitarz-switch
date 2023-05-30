@@ -1,5 +1,5 @@
 class GuitarsController < ApplicationController
-  before_action :set_guitar, only: %i[destroy show uptdate]
+  before_action :set_guitar, only: %i[destroy show  edit uptdate]
   skip_before_action :authenticate_user!, only: :index
 
   def index
@@ -23,6 +23,19 @@ class GuitarsController < ApplicationController
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
 
+  def edit
+    authorize @guitar
+  end
+
+  def update
+    authorize @guitar
+    if @guitar.update(guitar_params)
+      redirect_to guitars_path(@guitar)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def new
     @guitar = Guitar.new
     authorize @guitar
@@ -30,13 +43,13 @@ class GuitarsController < ApplicationController
 
   def create
     @guitar = Guitar.new(guitar_params)
+    authorize @guitar
     @guitar.user = current_user
     if @guitar.save
       redirect_to @guitar
     else
       render :new, status: :unprocessable_entity
     end
-    authorize @guitar
   end
 
   private
