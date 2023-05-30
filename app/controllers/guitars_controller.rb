@@ -8,6 +8,7 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
+    authorize @guitar
     @guitar.destroy
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
