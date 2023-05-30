@@ -1,5 +1,5 @@
 class GuitarsController < ApplicationController
-  before_action :set_guitar, only: %i[destroy show uptdate]
+  before_action :set_guitar, only: %i[destroy show  edit uptdate]
   skip_before_action :authenticate_user!, only: :index
 
   def index
@@ -15,6 +15,17 @@ class GuitarsController < ApplicationController
     authorize @guitar
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
+
+  def edit; end
+
+  def uptdate
+    if @guitar.update(guitar_params)
+      redirect_to guitar_path(@guitar)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
 
   def new
     @guitar = Guitar.new
@@ -43,5 +54,4 @@ class GuitarsController < ApplicationController
   def guitar_params
     params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day, :photo)
   end
-
 end

@@ -7,3 +7,7 @@
   <p><%= @guitar.right_handed %></p>
   <p><%= @guitar.year %></p>
   <p><%= @guitar.country %></p>
+
+  <P>
+    <%= link_to 'update', edit_guitar_path(@guitar), class:'btn btn-secondary' %>
+  </P>

@@ -8,3 +8,4 @@ class Guitar < ApplicationRecord
   validates :year, numericality: { greater_than_or_equal_to: 1930, less_than_or_equal_to: Date.current.year }
   validates :right_handed, inclusion: [true, false]
 end
+ 
