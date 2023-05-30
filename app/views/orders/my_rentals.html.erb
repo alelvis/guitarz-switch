@@ -1,0 +1,7 @@
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <%= order.guitar.name%><%= order.start_date%><%= order.end_date%>
+    </li>
+  <% end %>
+</ul>
