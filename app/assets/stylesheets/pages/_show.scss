@@ -1,12 +1,12 @@
 .grid-product {
  display: grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 2fr 1fr;
  gap: 40px;
 }
 
 .product-media {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 40px;
 }
 
