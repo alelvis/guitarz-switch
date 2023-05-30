@@ -4,7 +4,7 @@ class GuitarsController < ApplicationController
 
   def index
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
-    @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
+    @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id))
   end
 
   def my_guitars
@@ -16,23 +16,27 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
-    authorize @guitar
     @guitar.destroy
+    authorize @guitar
     redirect_to guitars_path, notice: "Guitars was successfully destroyed"
   end
 
   def new
     @guitar = Guitar.new
+    authorize @guitar
   end
 
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user = current_user
     if @guitar.save
+      raise
       redirect_to @guitar
     else
+      raise
       render :new, status: :unprocessable_entity
     end
+    authorize @guitar
   end
 
   private
@@ -42,6 +46,6 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day)
+    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day, :photo)
   end
 end

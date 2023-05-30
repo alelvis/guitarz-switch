@@ -1,4 +1,5 @@
 <ul>
+<%# <%= cl_image_tag current_user.photo.key, alt: "dropdown menu", width: 50, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <% @guitars.each do |guitar| %>
     <li>
       <%= link_to guitar.name, guitar_path(guitar) %>
