@@ -8,8 +8,8 @@ class GuitarsController < ApplicationController
   end
 
   def my_guitars
-    rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
-    @guitars = Guitar.where.not(id: rented_guitars.pluck(:id))
+    # rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
+    @guitars = Guitar.where(user: current_user)
     authorize @guitars
   end
 
