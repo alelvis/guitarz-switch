@@ -54,14 +54,17 @@ User.all.each do |user|
       )
 
     guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand}")
+    guitar_photo_2= Unsplash::Photo.random(query: "#{guitar.brand}")
 
     if guitar_photo.present?
-      guitar.photo.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
+      guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
+      guitar.photos.attach(io: URI.open(guitar_photo_2.urls.regular), filename: "guitar_photo.jpg")
       guitar.save!
     else
       puts "Failed to find a guitar photo"
     end
   end
+
 end
 
 10.times do |i|
