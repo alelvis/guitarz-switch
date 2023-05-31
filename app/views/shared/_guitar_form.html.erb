@@ -1,0 +1,15 @@
+  <%= simple_form_for guitar do |f| %>
+    <%= f.input :name, label: 'Title', placeholder: 'ex: Gibson Limited Edition 58 Hot Rod Les Paul 2008 Red' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    <%= f.input :brand, placeholder: 'ex: Gibson, Fender, Ibanez...'%>
+    <%= f.input :model, placeholder: 'ex: Les Paul, Startocaster, Flying V...' %>
+    <%= f.input :year, as: :integer, placeholder: 'Production year'%>
+    <%= f.input :country, label: 'Made in' %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :material, placeholder: 'ex: Mahogany, Walnut, Maple...' %>
+    <%= f.input :pickup %>
+    <%= f.input :right_handed, as: :boolean %>
+    <%= f.input :rental_city, placeholder: 'The city you are renting in' %>
+    <%= f.input :price_per_day, as: :decimal %>
+    <%= f.submit 'Create new Listing', class: 'btn btn-primary' %>
+  <% end %>
