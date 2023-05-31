@@ -2,11 +2,15 @@
   <div class="grid-product">
     <div class="product-media">
       <div class="gallery-image">
-        <%= image_tag src="guitar.webp", class:"thumb" %>
-        <%= image_tag src="guitar.webp", class:"thumb" %>
-        <%= image_tag src="guitar.webp", class:"thumb" %>
+     <div class="card-product">
+     <% if @guitar.photos.attached? %>
+      <% @guitar.photos.each do |photo|%>
+        <%= cl_image_tag photo.key, class:"product-image" %>
+      <% end %>
+      <% else %>
+      <%= image_tag "guitar.webp", class: "product-image" %>
+      <% end %>
       </div>
-      <%= image_tag src="guitar.webp", class:"product-image" %>
     </div>
 
 
@@ -34,4 +38,5 @@
   <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
 <% end %>
   </p>
-  <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %>
+<%# <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %> %>
+
