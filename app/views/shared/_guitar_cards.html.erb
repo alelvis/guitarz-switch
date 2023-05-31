@@ -1,0 +1,15 @@
+<div class="cards">
+    <% guitars.each do |guitar| %>
+     <div class="card-product">
+      <%= image_tag src="guitar.webp", class:"product-image" %>
+      <div class="card-product-infos">
+      <div>
+        <h2><%= guitar.name %></h2>
+        <p><%= guitar.rental_city %></p>
+      </div>
+        <span class="price">R$ <%= guitar.price_per_day %> </span>
+      </div>
+      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card" %>
+      </div>
+    <% end %>
+  <div>
