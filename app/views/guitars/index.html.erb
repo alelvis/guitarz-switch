@@ -10,11 +10,16 @@
   <div class="cards">
     <% @guitars.each do |guitar| %>
      <div class="card-product">
-      <%= cl_image_tag guitar.photo.key, class:"product-image" %>
+     <% if guitar.photos.attached? %>
+      <% guitar.photos.each do |photo|%>
+        <%= cl_image_tag photo.key, class:"product-image" %>
+      <% end %>
+      <% else %>
+      <%= image_tag "guitar.webp", class: "product-image" %>
+      <% end %>
       <div class="card-product-infos">
         <h2><%= guitar.name %></h2>
               <span class="price"> R$ <%= guitar.price_per_day %></span>
-
       </div>
       <a class="btn-rent btn-card" href="#">Alugar</a>
       </div>
