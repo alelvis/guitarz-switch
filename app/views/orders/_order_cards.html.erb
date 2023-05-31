@@ -1,0 +1,11 @@
+<ul>
+  <% orders.each do |order| %>
+    <li>
+      <%= order.guitar.name%>
+      start date: <%= order.start_date%>
+      end date: <%= order.end_date%>
+      <%= link_to "View details", order_path(order), class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back', url_for(:back) %>
