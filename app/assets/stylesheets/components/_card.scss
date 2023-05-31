@@ -28,9 +28,8 @@
 }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     opacity: .7;
-    margin: 0;
   }
 
   .price {
@@ -38,7 +37,9 @@
   }
   .price::after {
     content:' per day';
-    font-size: 14px;
+    font-size: 12px;
+    opacity: .7;
+
   }
 
 }

@@ -12,10 +12,13 @@
      <div class="card-product">
       <%= image_tag src="guitar.webp", class:"product-image" %>
       <div class="card-product-infos">
+      <div>
         <h2><%= guitar.name %></h2>
+        <p><%= guitar.country %></p>
+      </div>
         <span class="price">R$ <%= guitar.price_per_day %> </span>
       </div>
-      <a class="btn-rent btn-card" href="#">View Details</a>
+      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card" %>
       </div>
     <% end %>
   <div>
