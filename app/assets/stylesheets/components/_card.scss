@@ -19,17 +19,26 @@
 .card-product-infos {
 
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
 
   h2 {
   font-size: 18px;
   font-weight: bold;
-  margin: 0;
 }
 
   p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
+  }
+
+  .price {
+  font-size: 18px;
+  }
+  .price::after {
+    content:' per day';
+    font-size: 14px;
   }
 
 }
