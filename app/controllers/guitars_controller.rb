@@ -2,15 +2,18 @@ class GuitarsController < ApplicationController
   before_action :set_guitar, only: %i[destroy show edit update]
   skip_before_action :authenticate_user!, only: :index
 
+  after_action :skip_authorization, only: %i[my_guitars]
+  after_action :verify_policy_scoped, only: %i[my_guitars], unless: :skip_pundit?
+
   def index
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id))
+    @guitars.order!(id: :desc)
   end
 
   def my_guitars
-    # rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
-    @guitars = Guitar.where(user: current_user)
-    authorize @guitars
+    @guitars = policy_scope(Guitar).where(user: current_user)
+    @guitars.order!(id: :desc)
   end
 
   def show
@@ -20,7 +23,7 @@ class GuitarsController < ApplicationController
   def destroy
     @guitar.destroy
     authorize @guitar
-    redirect_to guitars_path, notice: "Guitars was successfully destroyed"
+    redirect_to guitars_path, notice: "Guitar was successfully destroyed"
   end
 
   def edit
