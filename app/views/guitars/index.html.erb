@@ -9,14 +9,12 @@
 <div class="container mt-5 mb-5">
   <div class="cards">
     <% @guitars.each do |guitar| %>
-     <div class="card-product">
-     <% if guitar.photos.attached? %>
-      <% guitar.photos.each do |photo|%>
-        <%= cl_image_tag photo.key, class:"product-image" %>
-      <% end %>
-      <% else %>
-      <%= image_tag "guitar.webp", class: "product-image" %>
-      <% end %>
+      <div class="card-product">
+        <% if guitar.photos.attached? %>
+          <%= cl_image_tag guitar.photos[0].key, class:"product-image" %>
+        <% else %>
+          <%= image_tag "guitar.webp", class: "product-image" %>
+        <% end %>
       <div class="card-product-infos">
       <div>
         <h2><%= guitar.name %></h2>
