@@ -6,26 +6,33 @@
 
 .product-media {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  height: 600px;
+}
+
+.media-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.primary-image {
+  height: 100%;
+  width: 100%;
+  object-position: cover;
+}
+
+.secondary-image {
+  height: 300px;
+  width: 100%;
+  object-position: cover;
+
 }
 
 .product-image {
-  object-fit: cover;
-  height: 100%;
   border-radius: 4px;
 }
-
-.gallery-image {
-display: flex;
-flex-direction: column;
-gap: 20px
-}
-
-.thumb {
-  border-radius: 4px;
-  }
-
 .product-info {
 
 h1 {
