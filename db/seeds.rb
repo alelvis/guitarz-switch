@@ -56,28 +56,25 @@ User.all.each do |user|
     guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand}")
 
     if guitar_photo.present?
-      guitar.photo.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
+      guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
       guitar.save!
     else
       puts "Failed to find a guitar photo"
     end
   end
 
+#  10.times do |i|
+#    seller = User.all.sample
+#    guitar = seller.guitars.sample
+#    buyer = User.all.reject{|user| user.id == seller.id}.sample
+#    start = Date.today + rand(-90..+90)
+#    days = rand(1..30)
+#    Order.create!(
+#      guitar: guitar,
+#      user: buyer,
+#      price: days * guitar.price_per_day,
+#      start_date: start,
+#      end_date: start + days
+#    )
+#  end
 end
-
-
-
-# 10.times do |i|
-#   seller = User.all.sample
-#   guitar = seller.guitars.sample
-#   buyer = User.all.reject{|user| user.id == seller.id}.sample
-#   start = Date.today + rand(-90..+90)
-#   days = rand(1..30)
-#   Order.create!(
-#     guitar: guitar,
-#     user: buyer,
-#     price: days * guitar.price_per_day,
-#     start_date: start,
-#     end_date: start + days
-#   )
-# end

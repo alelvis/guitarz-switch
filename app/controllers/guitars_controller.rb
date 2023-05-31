@@ -62,6 +62,6 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day, :photo)
+    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day, photos: [])
   end
 end
