@@ -97,6 +97,10 @@ GEM
       aws_cf_signer
       rest-client (>= 2.0.0)
     concurrent-ruby (1.2.2)
+    countries (5.4.0)
+      unaccent (~> 0.3)
+    country_select (8.0.1)
+      countries (~> 5.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -274,6 +278,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unaccent (0.4.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -311,6 +316,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cloudinary
+  country_select (~> 8.0)
   debug
   devise
   dotenv-rails

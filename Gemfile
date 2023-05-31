@@ -12,6 +12,10 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
+# country_select
+
+gem 'country_select', '~> 8.0'
+
 # devise gem
 
 gem "devise"
