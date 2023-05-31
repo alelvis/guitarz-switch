@@ -1,5 +1,21 @@
-<ul>
-  <% @guitars.each do |guitar| %>
-    <li><%= guitar.name %></li>
-  <% end %>
-</ul>
+<div class="banner">
+  <div class="container">
+    <h1>Guitarras</h1>
+    <p>Alugue sua guitarra!</p>
+  </div>
+</div>
+
+
+<div class="container mt-5 mb-5">
+  <div class="cards">
+    <% @guitars.each do |guitar| %>
+     <div class="card-product">
+      <%= image_tag src="guitar.webp", class:"product-image" %>
+      <div class="card-product-infos">
+        <h2><%= guitar.name %></h2>
+      </div>
+      <a class="btn-rent btn-card" href="#">Alugar</a>
+      </div>
+    <% end %>
+  <div>
+</div>
