@@ -10,6 +10,7 @@ class GuitarPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
   def show?
     true
   end
@@ -20,10 +21,6 @@ class GuitarPolicy < ApplicationPolicy
 
   def update?
     record.user == user
-  end
-
-  def show?
-    true
   end
 
   def my_guitars?

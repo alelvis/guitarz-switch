@@ -10,7 +10,7 @@
   <div class="cards">
     <% @guitars.each do |guitar| %>
      <div class="card-product">
-      <%= image_tag src="guitar.webp", class:"product-image" %>
+      <%= cl_image_tag guitar.photo.key, class:"product-image" %>
       <div class="card-product-infos">
       <div>
         <h2><%= guitar.name %></h2>

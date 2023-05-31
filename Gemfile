@@ -53,6 +53,8 @@ gem "faker"
 
 gem "pundit"
 
+gem 'unsplash'
+
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
 
