@@ -18,3 +18,36 @@
 .btn-card {
   border-radius: 0 0 4px 4px;
 }
+
+.btn-primary {
+  background-color: #1D1B1C;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+  transition: 0.5ms;
+  color: #ffffff;
+}
+
+.btn-delete {
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #d20000;
+  transition: 0.5ms;
+}
