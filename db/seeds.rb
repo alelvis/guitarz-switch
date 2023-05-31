@@ -25,7 +25,7 @@ Unsplash.configure do |config|
   config.utm_source = "alices_terrific_client_app"
 end
 User.all.each do |user|
-  1.times do
+  2.times do
     year = rand(1950.. 2023)
     brand = brands.sample
     index = brands.index {|e| e == brand}
@@ -62,22 +62,19 @@ User.all.each do |user|
       puts "Failed to find a guitar photo"
     end
   end
-
 end
 
-
-
-# 10.times do |i|
-#   seller = User.all.sample
-#   guitar = seller.guitars.sample
-#   buyer = User.all.reject{|user| user.id == seller.id}.sample
-#   start = Date.today + rand(-90..+90)
-#   days = rand(1..30)
-#   Order.create!(
-#     guitar: guitar,
-#     user: buyer,
-#     price: days * guitar.price_per_day,
-#     start_date: start,
-#     end_date: start + days
-#   )
-# end
+10.times do |i|
+  seller = User.all.sample
+  guitar = seller.guitars.sample
+  buyer = User.all.reject{|user| user.id == seller.id}.sample
+  start = Date.today + rand(-90..+90)
+  days = rand(1..30)
+  Order.create!(
+    guitar: guitar,
+    user: buyer,
+    price: days * guitar.price_per_day,
+    start_date: start,
+    end_date: start + days
+  )
+end

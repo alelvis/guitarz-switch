@@ -18,6 +18,8 @@ class GuitarsController < ApplicationController
 
   def show
     authorize @guitar
+    @order = Order.new
+    authorize @order
   end
 
   def destroy

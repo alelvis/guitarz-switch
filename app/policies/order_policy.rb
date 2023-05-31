@@ -20,4 +20,12 @@ class OrderPolicy < ApplicationPolicy
   def my_sales?
     false
   end
+
+  def show?
+    true
+  end
+
+  def create?
+    true
+  end
 end
