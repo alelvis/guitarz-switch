@@ -38,5 +38,13 @@
   <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
 <% end %>
   </p>
-<%# <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %> %>
-
+  <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %>
+  <%# <%= cl_image_tag @guitar.photo.key if @guitar.photo.attached? %> %>
+  
+<div class='container'>
+  <%= simple_form_for [@guitar, @order] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit 'Rent Guitar', class: 'btn btn-primary' %>
+  <% end %>
+</div>
