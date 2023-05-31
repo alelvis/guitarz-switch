@@ -1,7 +1,19 @@
 .grid-product {
  display: grid;
- grid-template-columns: 160px 1fr 1fr;
+ grid-template-columns: 2fr 1fr;
  gap: 40px;
+}
+
+.product-media {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+}
+
+.product-image {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 4px;
 }
 
 .gallery-image {
@@ -9,6 +21,10 @@ display: flex;
 flex-direction: column;
 gap: 20px
 }
+
+.thumb {
+  border-radius: 4px;
+  }
 
 .product-info {
 

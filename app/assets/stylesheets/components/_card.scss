@@ -1,0 +1,35 @@
+.card-product{
+  overflow: hidden;
+  background: white;
+  border-radius: 4px;
+}
+
+.card-product:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: 0.5ms;
+
+}
+
+.card-product > img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-product-infos {
+
+  padding: 16px;
+
+  h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+}

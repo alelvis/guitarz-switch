@@ -1,10 +1,23 @@
-<ul>
-<%# <%= cl_image_tag current_user.photo.key, alt: "dropdown menu", width: 50, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-  <% @guitars.each do |guitar| %>
-    <li>
-      <%= link_to guitar.name, guitar_path(guitar) %>
-      <p></p>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'Lend a guitar', new_guitar_path, class: 'btn btn-primary' %>
+<div class="banner">
+  <div class="container">
+    <h1>Guitarras</h1>
+    <p>Alugue sua guitarra!</p>
+  </div>
+</div>
+
+
+<div class="container mt-5 mb-5">
+  <div class="cards">
+    <% @guitars.each do |guitar| %>
+     <div class="card-product">
+      <%= image_tag src="guitar.webp", class:"product-image" %>
+      <div class="card-product-infos">
+        <h2><%= guitar.name %></h2>
+              <span class="price"> R$ <%= guitar.price_per_day %></span>
+
+      </div>
+      <a class="btn-rent btn-card" href="#">Alugar</a>
+      </div>
+    <% end %>
+  <div>
+</div>
