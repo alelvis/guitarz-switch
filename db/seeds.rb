@@ -25,7 +25,7 @@ Unsplash.configure do |config|
   config.utm_source = "alices_terrific_client_app"
 end
 User.all.each do |user|
-  2.times do
+  1.times do
     year = rand(1950.. 2023)
     brand = brands.sample
     index = brands.index {|e| e == brand}
@@ -53,18 +53,27 @@ User.all.each do |user|
         user: user
       )
 
-    guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand}")
-    guitar_photo_2= Unsplash::Photo.random(query: "#{guitar.brand}")
 
-    if guitar_photo.present?
-      guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
-      guitar.photos.attach(io: URI.open(guitar_photo_2.urls.regular), filename: "guitar_photo.jpg")
-      guitar.save!
-    else
-      puts "Failed to find a guitar photo"
+    rand(2..3).times do
+      guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand} guitar")
+      if guitar_photo.present?
+        guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
+        guitar.save!
+      else
+        puts "Failed to find a guitar photo"
+      end
     end
-  end
+    # guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand} guitar")
+    # guitar_photo_2= Unsplash::Photo.random(query: "#{guitar.brand} guitar")
 
+    # if guitar_photo.present?
+    #   guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
+    #   guitar.photos.attach(io: URI.open(guitar_photo_2.urls.regular), filename: "guitar_photo.jpg")
+    #   guitar.save!
+    # else
+    #   puts "Failed to find a guitar photo"
+    # end
+  end
 end
 
 10.times do |i|
