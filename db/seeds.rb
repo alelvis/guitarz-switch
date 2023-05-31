@@ -2,17 +2,18 @@ Order.destroy_all
 Guitar.destroy_all
 User.destroy_all
 
-User.create(email: "joao@gmail.com", password: "123123")
-User.create(email: "paulo@gmail.com", password: "123123")
-User.create(email: "cesar@gmail.com", password: "123123")
-User.create(email: "joana@gmail.com", password: "123123")
-User.create(email: "juliana@gmail.com", password: "123123")
+User.create!(first_name: "Joao", last_name: "De la Vegas", email: "joao@gmail.com", password: "123123")
+User.create!(first_name: "Paulo", last_name: "De la Bamba", email: "paulo@gmail.com", password: "123123")
+User.create!(first_name: "Alphonse", last_name: "Black Mamba", email: "alphadeny@hotmail.fr", password: "123123")
+User.create!(first_name: "Thiago", last_name: "Cucaracha", email: "thiago@olatu.com", password: "123123")
+User.create!(first_name: "Julia", last_name: "Senhorita", email: "juliavdheyde@icloud.com", password: "123123")
 
 brands = ["Gibson", "Fender", "Ibanez"]
 models = ["Explorer", "Les Paul", "Telecaster", "Stratocaster", "Jazzmaster", "AF"]
 materials = ["Walnut", "Mahogany"]
 pickups = ["Classic Elite (H)", "V-MOD II"]
 countries = ["USA", "France", "Thailand"]
+cities = ["Sao Paulo", "Rio de Janeiro"]
 
 User.all.each do |user|
   2.times do
@@ -38,6 +39,7 @@ User.all.each do |user|
       year: year,
       country: countries.sample,
       price_per_day: rand(10..500),
+      rental_city: cities.sample,
       user: user
     )
   end
