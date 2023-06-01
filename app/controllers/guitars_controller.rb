@@ -4,7 +4,7 @@ class GuitarsController < ApplicationController
 
   after_action :skip_authorization, only: %i[my_guitars]
   after_action :verify_policy_scoped, only: %i[my_guitars], unless: :skip_pundit?
-
+  
   def index
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id)).where.not(user: current_user)
@@ -15,9 +15,15 @@ class GuitarsController < ApplicationController
     if params[:start_date].present? && params[:end_date].present?
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
-      @guitars =  @guitars.joins(:orders).where.not('start_date = ? AND end_date = ?', start_date, end_date)
+      @guitars.select do |guitar|
+        range(start_date..end_date).all do |date|
+          current_rental = Order.where(guitar: guitar).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
+          current_rental.empty?
+        end
+      end
+    else
+      @guitars
     end
-  end
 
   def my_guitars
     @guitars = policy_scope(Guitar).where(user: current_user)
