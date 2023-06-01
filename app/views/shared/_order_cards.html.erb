@@ -1,11 +1,14 @@
-<ul>
+<div class="rental-list">
   <% orders.each do |order| %>
-    <li>
-      <%= order.guitar.name%>
-      start date: <%= order.start_date%>
-      end date: <%= order.end_date%>
-      <%= link_to "View details", order_path(order), class: 'btn btn-primary' %>
-    </li>
+  <div class="rental-card">
+    <h3><%= order.guitar.name%></h3>
+    <div class="order-date">
+    <p>start date: <%= order.start_date%></p>
+    <p>end date: <%= order.end_date%></p>
+    </div>
+
+    <%= link_to "Order details", order_path(order), class: 'btn-primary btn-card' %>
+  </div>
   <% end %>
-</ul>
-<%= link_to 'Back', url_for(:back), class: 'btn btn-secondary' %>
+</div>
+<%= link_to 'Back', url_for(:back), class: 'btn-third mtb-x' %>

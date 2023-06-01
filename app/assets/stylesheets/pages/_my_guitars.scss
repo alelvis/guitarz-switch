@@ -1,12 +1,15 @@
-.guitar-list-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 1px solid #b4b4b4;
-  padding: 40px 0;
+.my-listing-grid {
+  display: grid;
+  grid-template-columns: .5fr 2fr;
+  gap: 40px;
+}
 
-  a{
-    color: #232323;
-    font-weight: bold;
-  }
+.my-listing-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: var(--cor-2);
+  height: 220px;
 }
