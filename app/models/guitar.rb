@@ -10,8 +10,8 @@ class Guitar < ApplicationRecord
   validates :year, numericality: { greater_than_or_equal_to: 1930, less_than_or_equal_to: Date.current.year }
   validates :right_handed, inclusion: [true, false]
 
-  pg_search_scope :search_model_and_city,
-    against: [ :model, :city ],
+  pg_search_scope :search_brand_and_city,
+    against: [ :brand, :rental_city ],
     using: {
       tsearch: { prefix: true }
     }
