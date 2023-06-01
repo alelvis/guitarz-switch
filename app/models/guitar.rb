@@ -9,6 +9,13 @@ class Guitar < ApplicationRecord
   validates :year, numericality: { greater_than_or_equal_to: 1930, less_than_or_equal_to: Date.current.year }
   validates :right_handed, inclusion: [true, false]
 
+  # include PgSearch::Model
+  # pg_search_scope :search_model_and_brand,
+  #   against: [ :model, :brand ],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
+
   def available?
     current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     puts current_rental
