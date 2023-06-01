@@ -26,6 +26,4 @@ class Guitar < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
-
-  #test
 end
