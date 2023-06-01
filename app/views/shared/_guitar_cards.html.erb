@@ -4,12 +4,12 @@
       <%= cl_image_tag guitar.photos[0].key, class:"product-image" %>
       <div class="card-product-infos">
       <div>
-        <h2><%= guitar.name %></h2>
+        <h3><%= guitar.name %></h3>
         <p><%= guitar.rental_city %></p>
       </div>
         <span class="price">R$ <%= guitar.price_per_day %> </span>
       </div>
-      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card" %>
+      <%= link_to "View Details", guitar_path(guitar), class:"btn-primary btn-card" %>
       </div>
     <% end %>
   <div>
