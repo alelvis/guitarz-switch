@@ -1,3 +1,5 @@
+<% "random text" %>
+
 <div class="container container-p">
   <div class="grid-product">
     <div class="product-media">
@@ -30,11 +32,13 @@
           <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
         <% end %>
       <% else %>
-        <%= simple_form_for [@guitar, @order] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.submit 'Rent Guitar', class: 'btn btn-rent' %>
-        <% end %>
+        <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
+          <%= simple_form_for [@guitar, @order] do |f| %>
+            <%= f.input :start_date, as: :string, type: :text, input_html: {class: 'datepicker'} %>
+            <%= f.input :end_date, as: :string, type: :text, input_html: {class: 'datepicker'} %>
+            <%= f.submit "Rent Guitar", class: "btn btn-rent" %>
+          <% end %>
+        </div>
       <% end %>
       <div class="details">
       <h3>Ficha Técnica</h3>

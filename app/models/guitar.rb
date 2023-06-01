@@ -14,4 +14,10 @@ class Guitar < ApplicationRecord
     puts current_rental
     current_rental.empty?
   end
+
+  def unavailable_dates
+    orders.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
