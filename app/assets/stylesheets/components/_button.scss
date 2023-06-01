@@ -1,6 +1,6 @@
 .btn-rent {
   background-color: var(--cor-p1);
-  color: #ffffff;
+  color: var(--cor-0);
   font-size: 20px;
   padding: 8px 16px;
   border-radius: 4px;
@@ -12,7 +12,7 @@
 .btn-rent:hover {
   background-color: var(--cor-p2);
   transition: 0.5ms;
-  color: #ffffff;
+  color: var(--cor-0);
 }
 
 .btn-card {
@@ -21,7 +21,7 @@
 
 .btn-primary {
   background-color: var(--cor-p1);
-  color: #ffffff;
+  color: var(--cor-0);
   font-size: 20px;
   padding: 8px 20px;
   border-radius: 4px;
@@ -40,7 +40,7 @@
 
 .btn-secondary {
   background-color: var(--cor-10);
-  color: #ffffff;
+  color: var(--cor-0);
   font-size: 20px;
   padding: 8px 20px;
   border-radius: 4px;
@@ -52,14 +52,14 @@
 .btn-secondary:hover {
   background-color: var(--cor-12);
   transition: 0.5ms;
-  color: #ffffff;
+  color: var(--cor-0);
   transition: 0.5ms;
 
 }
 
 .btn-third{
   background-color: var(--cor-6);
-  color: #ffffff;
+  color: var(--cor-0);
   font-size: 20px;
   padding: 8px 20px;
   border-radius: 4px;
@@ -71,14 +71,32 @@
 .btn-third:hover {
   background-color: var(--cor-7);
   transition: 0.5ms;
-  color: #ffffff;
+  color: var(--cor-0);
+  transition: 0.5ms;
+}
+
+.btn-add{
+  background-color: var(--cor-a1);
+  color: var(--cor-0);
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-add:hover {
+  background-color: var(--cor-a2);
+  transition: 0.5ms;
+  color: var(--cor-0);
   transition: 0.5ms;
 
 }
 
 .btn-delete {
   background-color: #ff0000;
-  color: #ffffff;
+  color: var(--cor-0);
   font-size: 20px;
   padding: 6px 10px;
   border-radius: 4px;
