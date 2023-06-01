@@ -10,7 +10,7 @@ class GuitarsController < ApplicationController
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id)).where.not(user: current_user)
     @guitars.order!(id: :desc)
     if params[:query].present?
-      @guitars = @guitars.search_model_and_city(params[:query])
+      @guitars = @guitars.search_brand_and_city(params[:query])
     end
   end
 
