@@ -1,5 +1,5 @@
 .btn-rent {
-  background-color: #1D1B1C;
+  background-color: #d22e2e;
   color: #ffffff;
   font-size: 20px;
   padding: 8px 16px;
@@ -10,7 +10,7 @@
 }
 
 .btn-rent:hover {
-  background-color: #000000;
+  background-color: #a4263c;
   transition: 0.5ms;
   color: #ffffff;
 }
@@ -34,6 +34,8 @@
   background-color: #000000;
   transition: 0.5ms;
   color: #ffffff;
+  transition: 0.5ms;
+
 }
 
 .btn-delete {
@@ -45,9 +47,4 @@
   display: block;
   text-decoration: none;
   text-align: center;
-}
-
-.btn-primary:hover {
-  background-color: #d20000;
-  transition: 0.5ms;
 }
