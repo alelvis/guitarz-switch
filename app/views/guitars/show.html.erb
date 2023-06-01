@@ -3,7 +3,7 @@
     <div class="product-media">
       <% if @guitar.photos.attached? %>
         <div class="media-gallery">
-         <% @guitar.photos[1..].each do |photo|%>
+          <% @guitar.photos[1..].each do |photo|%>
             <%= cl_image_tag photo.key, class:"product-image secondary-image" %>
           <% end %>
         </div>
@@ -23,10 +23,17 @@
       <h1><%= @guitar.name %></h1>
       <p><%= @guitar.description %></p>
       <span class="price">  R$ <%= @guitar.price_per_day %></span>
-      <%= simple_form_for [@guitar, @order] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit 'Rent Guitar', class: 'btn btn-primary' %>
+      <% if policy(@guitar).edit? %>
+        <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn btn-primary' %> |
+        <% if policy(@guitar).destroy? %>
+          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
+        <% end %>
+      <% else %>
+        <%= simple_form_for [@guitar, @order] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit 'Rent Guitar', class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
       <div class="details">
         <ul>
@@ -43,11 +50,6 @@
     </div>
   </div>
 </div>
-  <p>
-<% if policy(@guitar).edit? %>
-  <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
-<% end %>
-  </p>
 
 <%# <div class='container'>
   <%= simple_form_for [@guitar, @order] do |f|
