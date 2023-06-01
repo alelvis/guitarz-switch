@@ -11,7 +11,7 @@
 }
 
 .card-product > img {
-  height: 600px;
+  height: 400px;
   width: 100%;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
@@ -23,11 +23,22 @@
   display: flex;
   justify-content: space-between;
 
-  h2 {
+  h3 {
   font-size: 18px;
   font-weight: bold;
 }
 
+  h3::before {
+  content: "";
+  display: inline-block;
+  height: 6px;
+  width: 8px;
+  margin-right: 8px;
+  background-color: #d22e2e;
+  transition: width 0.2s;
+  position: relative;
+    top: -3px;
+}
   p {
     font-size: 14px;
     opacity: .7;
@@ -41,5 +52,7 @@
     font-size: 12px;
     opacity: .7;
     letter-spacing: -1px;
+
   }
+
 }

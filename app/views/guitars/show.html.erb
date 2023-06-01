@@ -1,48 +1,61 @@
-<div class="container mt-5 mb-5">
+<div class="container container-p">
   <div class="grid-product">
     <div class="product-media">
-      <div class="gallery-image">
-     <div class="card-product">
-     <% if @guitar.photos.attached? %>
-      <% @guitar.photos.each do |photo|%>
-        <%= cl_image_tag photo.key, class:"product-image" %>
-      <% end %>
+      <% if @guitar.photos.attached? %>
+        <div class="media-gallery">
+         <% @guitar.photos[1..].each do |photo|%>
+            <%= cl_image_tag photo.key, class:"product-image secondary-image" %>
+          <% end %>
+        </div>
+        <div>
+          <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image" %>
+        </div>
+
       <% else %>
-      <%= image_tag "guitar.webp", class: "product-image" %>
+        <div>
+          <%= image_tag "guitar.webp", class: "product-image primary-image" %>
+        </div>
       <% end %>
-      </div>
     </div>
 
 
     <div class="product-info">
-      <h1><%= @guitar.name %></h1>
-      <span><%= @guitar.model %></span>
+      <h1><%= @guitar.name %><span class="bullet-title">.</span></h1>
       <p><%= @guitar.description %></p>
       <span class="price">  R$ <%= @guitar.price_per_day %></span>
-      <a class="btn-rent" href="#">Alugar</a>
+      <%= simple_form_for [@guitar, @order] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit 'Rent Guitar', class: 'btn btn-rent' %>
+      <% end %>
       <div class="details">
-        <ul>
-          <li>Material: <%= @guitar.material %></li>
-          <li>Pickup: <%= @guitar.pickup %></li>
-          <li>Ano: <%= @guitar.year %></li>
-          <li>País: <%= @guitar.country %></li>
-          <li>Cidade: <%= @guitar.rental_city %></li>
-        </ul>
+      <h3>Ficha Técnica</h3>
+        <div class="details-list">
+          <ul>
+            <li>Brand<span><%= @guitar.brand %></span></li>
+            <li>Model<span><%= @guitar.model %></span></li>
+            <li>Material<span><%= @guitar.material %></span></li>
+            <li>Pickup<span><%= @guitar.pickup %></span></li>
+            <li>Ano<span><%= @guitar.year %></span></li>
+            <li>País<span><%= @guitar.country %></span></li>
+            <li>Cidade<span><%= @guitar.rental_city %></span></li>
+            <li>Handed<span><%= @guitar.right_handed ? 'Right Handed': 'Left Handed' %></span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-  <p><%= @guitar.right_handed %></p>
   <p>
 <% if policy(@guitar).edit? %>
   <%= link_to "Edit this Guitar", edit_guitar_path(@guitar) %> |
 <% end %>
   </p>
 
-<div class='container'>
-  <%= simple_form_for [@guitar, @order] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.submit 'Rent Guitar', class: 'btn btn-primary' %>
-  <% end %>
-</div>
+<%# <div class='container'>
+  <%= simple_form_for [@guitar, @order] do |f|
+    <%= f.input :start_date
+    <%= f.input :end_date
+    <%= f.submit 'Rent Guitar', class: 'btn btn-primary'
+  <% end
+</div> %>
