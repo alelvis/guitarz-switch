@@ -1,4 +1,5 @@
 class Guitar < ApplicationRecord
+  include PgSearch::Model
   belongs_to :user
   has_many :orders, dependent: :destroy
   has_many_attached :photos
@@ -8,6 +9,12 @@ class Guitar < ApplicationRecord
   validates :price_per_day, :year, numericality: { only_integer: true }
   validates :year, numericality: { greater_than_or_equal_to: 1930, less_than_or_equal_to: Date.current.year }
   validates :right_handed, inclusion: [true, false]
+
+  pg_search_scope :search_model_and_city,
+    against: [ :model, :city ],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def available?
     current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)

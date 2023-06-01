@@ -59,6 +59,8 @@ gem "pundit"
 
 gem 'unsplash'
 
+gem "pg_search"
+
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
 
