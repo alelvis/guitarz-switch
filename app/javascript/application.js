@@ -2,5 +2,21 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-// import flatpickr from "flatpickr"
-// import rental_dates from 'plugins/init_flatpick.js'
+
+// Galeria de Bicicletas
+const galeria = document.querySelectorAll(".media-gallery img");
+const galeriaContainer = document.querySelector(".media-gallery");
+
+function trocarImagem(event) {
+  const img = event.currentTarget;
+  const media = matchMedia("(min-width: 1000px)").matches;
+  if (media) {
+    galeriaContainer.prepend(img);
+  }
+}
+
+function eventosGaleria(img) {
+  img.addEventListener("click", trocarImagem);
+}
+
+galeria.forEach(eventosGaleria);

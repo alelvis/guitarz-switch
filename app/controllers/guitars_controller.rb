@@ -9,6 +9,14 @@ class GuitarsController < ApplicationController
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id)).where.not(user: current_user)
     @guitars.order!(id: :desc)
+    if params[:query].present?
+      @guitars = @guitars.search_brand_and_city(params[:query])
+    end
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
+      @guitars =  @guitars.joins(:orders).where.not('start_date = ? AND end_date = ?', start_date, end_date)
+    end
   end
 
   def my_guitars
