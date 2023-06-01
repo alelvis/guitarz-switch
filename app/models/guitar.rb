@@ -11,11 +11,11 @@ class Guitar < ApplicationRecord
   validates :right_handed, inclusion: [true, false]
 
   pg_search_scope :search_brand_and_city,
-    against: [ :brand, :rental_city ],
+    against: [ :brand, :rental_city, :model ],
     using: {
       tsearch: { prefix: true }
     }
-
+    
   def available?
     current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     puts current_rental
