@@ -1,3 +1,7 @@
+<%= link_to 'Add Guitar', new_guitar_path, class: 'btn btn-primary' %>
+<%= link_to 'Rental history', my_sales_path, class: 'btn btn-secondary' %>
+<%= link_to 'Back', '/my_guitars' %>
+
 <div class="container mt-5">
   <h1>My guitars</h1>
   <%= render "shared/guitar_cards", guitars: @guitars %>
