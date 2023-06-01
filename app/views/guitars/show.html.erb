@@ -5,11 +5,11 @@
     <div class="product-media">
       <% if @guitar.photos.attached? %>
         <div class="media-gallery">
-          <% @guitar.photos[1..].each do |photo|%>
-            <%= cl_image_tag photo.key, class:"product-image secondary-image" %>
+          <% @guitar.photos[0..].each do |photo|%>
+            <%= cl_image_tag photo.key, class:"product-image secondary-image", data: {controller: "picker", action:"click->picker#changeImage"} %>
           <% end %>
         </div>
-        <div>
+        <div id="bigger-image">
           <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image" %>
         </div>
 
