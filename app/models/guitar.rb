@@ -15,7 +15,6 @@ class Guitar < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-    
   def available?
     current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     puts current_rental
