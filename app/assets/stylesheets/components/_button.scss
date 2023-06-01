@@ -1,5 +1,5 @@
 .btn-rent {
-  background-color: #d22e2e;
+  background-color: var(--cor-p1);
   color: #ffffff;
   font-size: 20px;
   padding: 8px 16px;
@@ -10,7 +10,7 @@
 }
 
 .btn-rent:hover {
-  background-color: #a4263c;
+  background-color: var(--cor-p2);
   transition: 0.5ms;
   color: #ffffff;
 }
@@ -20,18 +20,56 @@
 }
 
 .btn-primary {
-  background-color: #1D1B1C;
+  background-color: var(--cor-p1);
   color: #ffffff;
   font-size: 20px;
   padding: 8px 20px;
   border-radius: 4px;
-  display: block;
+  display: inline-block;
   text-decoration: none;
   text-align: center;
 }
 
 .btn-primary:hover {
-  background-color: #000000;
+  background-color: var(--cor-p2);
+  transition: 0.5ms;
+  color: #ffffff;
+  transition: 0.5ms;
+
+}
+
+.btn-secondary {
+  background-color: var(--cor-10);
+  color: #ffffff;
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background-color: var(--cor-12);
+  transition: 0.5ms;
+  color: #ffffff;
+  transition: 0.5ms;
+
+}
+
+.btn-third{
+  background-color: var(--cor-6);
+  color: #ffffff;
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-third:hover {
+  background-color: var(--cor-7);
   transition: 0.5ms;
   color: #ffffff;
   transition: 0.5ms;
