@@ -1,7 +1,7 @@
 <div class="cards">
     <% guitars.each do |guitar| %>
      <div class="card-product">
-      <%= cl_image_tag guitar.photos[0], class:"product-image" %>
+      <%= cl_image_tag guitar.photos[0].key, class:"product-image" %>
       <div class="card-product-infos">
       <div>
         <h2><%= guitar.name %></h2>
