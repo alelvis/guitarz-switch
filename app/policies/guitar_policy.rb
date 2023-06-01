@@ -23,12 +23,7 @@ class GuitarPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def my_guitars?
-    true
-  end
-
   def create?
     true
   end
-
 end

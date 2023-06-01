@@ -129,6 +129,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    flatpickr (4.6.11.0)
     font-awesome-sass (6.4.0)
       sassc (~> 2.0)
     globalid (1.1.0)
@@ -194,6 +195,9 @@ GEM
       version_gem (~> 1.1)
     orm_adapter (0.5.0)
     pg (1.5.3)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -321,10 +325,12 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  flatpickr
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
+  pg_search
   puma (~> 5.0)
   pundit
   rails (~> 7.0.5)

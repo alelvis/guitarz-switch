@@ -1,15 +1,22 @@
 <div class="cards">
-    <% guitars.each do |guitar| %>
-     <div class="card-product">
+  <% guitars.each do |guitar| %>
+    <div class="card-product">
       <%= cl_image_tag guitar.photos[0].key, class:"product-image" %>
       <div class="card-product-infos">
-      <div>
-        <h3><%= guitar.name %></h3>
-        <p><%= guitar.rental_city %></p>
-      </div>
+        <div>
+          <h3><%= guitar.name %></h3>
+          <p><%= guitar.rental_city %></p>
+          <% if policy(guitar).edit? %>
+            <p><%= guitar.available? ? 'Available' : 'Not Available' %></p>
+          <% end %>
+        </div>
         <span class="price">R$ <%= guitar.price_per_day %> </span>
       </div>
       <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card" %>
-      </div>
-    <% end %>
-  <div>
+      <% if policy(guitar).edit? %>
+        <%= link_to "Edit", edit_guitar_path(guitar), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  <% end %>
+<div>
+
