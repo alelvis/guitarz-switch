@@ -1,13 +1,11 @@
-.my-listing-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
 
 .my-listing-menu {
   display: flex;
   gap: 20px;
-  padding: 20px;
-  border-radius: 4px;
-  background-color: var(--cor-2);
+}
+
+.my-listing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

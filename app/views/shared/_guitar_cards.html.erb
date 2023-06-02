@@ -1,23 +1,25 @@
 <div class="cards">
   <% guitars.each do |guitar| %>
     <div class="card-product">
-    <% if guitar.photos[0] %>
-      <%= cl_image_tag(guitar.photos[0].key, class: 'product-image') %>
-    <% end %>
+      <% if guitar.photos[0] %>
+        <%= cl_image_tag(guitar.photos[0].key, class: 'product-image') %>
+      <% end %>
       <div class="card-product-infos">
         <div>
-          <h3><%= guitar.name %></h3>
-          <p><%= guitar.rental_city %></p>
-          <% if policy(guitar).edit? %>
-            <p class="available"><%= guitar.available? ? 'Available' : 'Not Available' %></p>
-          <% end %>
-        </div>
-        <span class="price">R$ <%= guitar.price_per_day %> </span>
-      </div>
-        <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card-2" %>
+        <h3><%= guitar.name %></h3>
+        <p><%= guitar.rental_city %></p>
         <% if policy(guitar).edit? %>
-          <%= link_to "Edit", edit_guitar_path(guitar), class:"btn-card btn-secondary" %>
+        <p class="available"><%= guitar.available? ? 'Available' : 'Not Available' %></p>
         <% end %>
+        </div>
+      <span class="price">R$ <%= guitar.price_per_day %> </span>
+      </div>
+      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card-2" %>
+      <% if policy(guitar).edit? %>
+        <%= link_to "Edit", edit_guitar_path(guitar), class:"btn-card btn-secondary" %>
+      <% end %>
     </div>
+
   <% end %>
-<div>
+
+</div>
