@@ -97,3 +97,5 @@ group :test do
 end
 
 gem 'flatpickr'
+
+gem 'ruby-vips'
