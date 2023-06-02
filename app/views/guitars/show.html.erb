@@ -33,7 +33,7 @@
       <div>
       <% if user_signed_in? %>
         <% if policy(@guitar).edit? %>
-          <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-card-4 btn-secondary' %> |
+          <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-card-4 btn-secondary' %>
         <% else %>
           <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
             <%= simple_form_for [@guitar, @order] do |f| %>
@@ -46,7 +46,7 @@
           </div>
         <% end %>
       <% else %>
-        <%= link_to "Login to rent", new_user_session_path, class: "btn-secondary" %>
+        <%= link_to "Login to rent", new_user_session_path, class: "btn-card-4 btn-secondary" %>
       <% end %>
       </div>
       <div class="details">
