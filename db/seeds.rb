@@ -16,7 +16,7 @@ models = ["Explorer", "Les Paul", "Telecaster", "Stratocaster", "Jazzmaster", "A
 materials = ["Walnut", "Mahogany"]
 pickups = ["Classic Elite (H)", "V-MOD II"]
 countries = ["USA", "France", "Thailand"]
-cities = ["Sao Paulo", "Rio de Janeiro"]
+cities = ["São Paulo", "Rio de Janeiro"]
 
 Unsplash.configure do |config|
   config.application_access_key = ENV["ACCESS_KEYS"]
@@ -48,17 +48,17 @@ User.all.each do |user|
         right_handed: true,
         year: year,
         country: countries.sample,
-        price_per_day: rand(10..500),
+        price_per_day: rand(1000..50_000),
         rental_city: cities.sample,
         user: user
       )
 
 
-    rand(2..4).times do
-      guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand} guitar")
+    rand(2..5).times do
+      guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand} electric guitar")
       if guitar_photo.present?
         guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
-        guitar.save!
+        guitar.save(validate: false)
       else
         puts "Failed to find a guitar photo"
       end

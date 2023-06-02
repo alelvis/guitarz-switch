@@ -11,10 +11,13 @@ class Guitar < ApplicationRecord
   validates :year, numericality: { allow_nil: true, only_integer: true, greater_than_or_equal_to: 1930, less_than_or_equal_to: Date.current.year }
 
   pg_search_scope :search_brand_and_city,
-    against: [ :brand, :rental_city, :model ],
+    against: [ :brand, :name, :model, :year, :right_handed ],
     using: {
       tsearch: { prefix: true }
     }
+
+  pg_search_scope :search_by_city, against: :rental_city
+
   def available?
     current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
     current_rental.empty?
@@ -30,6 +33,14 @@ class Guitar < ApplicationRecord
       available = true if current_rental.empty?
     end
     next_date
+  end
+
+  def price_per_day=(value)
+    # Remove any non-digit characters from the value
+    sanitized_value = value.to_s.gsub(",", ".").gsub(/[^0-9.]/,'')
+
+    # Convert the decimal value to cents and store as an integer
+    self[:price_per_day] = (sanitized_value.to_f * 100).to_i
   end
 
   def unavailable_dates

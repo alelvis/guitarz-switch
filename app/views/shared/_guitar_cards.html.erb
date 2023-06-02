@@ -14,7 +14,7 @@
           <p class="not-available">Available <%= guitar.next_availability.strftime("%d/%m/%y")%></p>
         <% end %>
         </div>
-      <span class="price">R$ <%= guitar.price_per_day %> </span>
+      <span class="price"><%= number_to_currency(guitar.price_per_day / 100.0, unit: "R$ ", delimiter: "") %> </span>
       </div>
       <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card-2 btn-card-3" %>
       <% if policy(guitar).edit? %>
@@ -22,5 +22,4 @@
       <% end %>
     </div>
   <% end %>
-
 </div>

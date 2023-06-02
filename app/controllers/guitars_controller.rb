@@ -1,6 +1,6 @@
 class GuitarsController < ApplicationController
   before_action :set_guitar, only: %i[destroy show edit update]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   after_action :skip_authorization, only: %i[my_guitars]
   after_action :verify_policy_scoped, only: %i[my_guitars], unless: :skip_pundit?
@@ -27,6 +27,10 @@ class GuitarsController < ApplicationController
     end
     @guitars.order!(id: :desc)
     @guitars
+  end
+
+  def search
+    @models = Model.search_by_city(params[:city])
   end
 
   def my_guitars
@@ -86,6 +90,6 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :rental_city, :price_per_day, photos: [])
+    params.require(:guitar).permit(:name, :brand, :model, :description, :material, :pickup, :right_handed, :year, :country, :price_per_day, :rental_city, photos: [])
   end
 end
