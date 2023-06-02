@@ -1,15 +1,13 @@
 .my-listing-grid {
-  display: grid;
-  grid-template-columns: .5fr 2fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
 }
 
 .my-listing-menu {
   display: flex;
-  flex-direction: column;
   gap: 20px;
   padding: 20px;
   border-radius: 4px;
   background-color: var(--cor-2);
-  height: 220px;
 }

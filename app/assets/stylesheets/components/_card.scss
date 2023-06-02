@@ -5,7 +5,7 @@
 }
 
 .card-product:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: 0.5ms;
 
 }
@@ -37,12 +37,13 @@
   background-color: var(--cor-p1);
   transition: width 0.2s;
   position: relative;
-    top: -3px;
+  top: -3px;
 }
   p {
     font-size: 14px;
     opacity: .7;
   }
+
 
   .price {
     font-size: 18px;

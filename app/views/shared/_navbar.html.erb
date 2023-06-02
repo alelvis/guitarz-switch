@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag src="electric-guitar.png", width: 200 %>
+  <div class="container">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag src="logo-text.svg", width: 300 %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
+            <%= link_to "Rent My Guitar", new_guitar_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "My Rentals", my_purchases_path, class: "nav-link" %>

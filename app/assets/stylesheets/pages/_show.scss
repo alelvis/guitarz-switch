@@ -38,10 +38,24 @@
 h1 {
   font-size: 32px;
   font-weight: bold;
+
 }
 
+h1::before {
+  content: "";
+  display: inline-block;
+  height: 6px;
+  width: 8px;
+  margin-right: 8px;
+  background-color: var(--cor-p1);
+  transition: width 0.2s;
+  position: relative;
+  top: -6px;
+}
+
+
 .bullet-title {
-  color: #d22e2e;
+  color: var(--cor-p1);
   font-size: 40px;
 }
 
@@ -63,6 +77,25 @@ p {
 
 }
 
+.available {
+
+  background-color: #24ff4c5c;
+  color: #093D12;
+  padding: 2px 8px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.not-available {
+
+  background-color: #ff3d6141;
+  color: #6E081A;
+  padding: 2px 8px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+
 }
 
 .details {
@@ -78,6 +111,7 @@ p {
     letter-spacing: 0.015em;
     margin-bottom: 12px;
     font-size: 12px;
+    font-weight: bold;
 }
 }
 

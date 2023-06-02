@@ -8,7 +8,7 @@
     <% if order.status == "Upcoming" && policy(order).destroy? %>
       <%= link_to "Cancel", order_path(order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
     <% end %>
-    <%= link_to "Order details", order_path(order), class: 'btn-primary btn-card' %>
+    <%= link_to "Order details", order_path(order), class: 'btn-primary' %>
   </div>
   <% end %>
 </div>

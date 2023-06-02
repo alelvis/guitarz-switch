@@ -11,5 +11,5 @@
     <%= f.input :right_handed, legend_tag: false, as: :radio_buttons, collection: ['Right Handed', 'Left Handed'] %>
     <%= f.input :rental_city, as: :select, collection: ['São Paulo', 'Rio de Janeiro'], placeholder: 'The city you are renting in' %>
     <%= f.input :price_per_day, as: :integer %>
-    <%= f.submit 'Create new Listing', class: 'btn btn-primary' %>
+    <%= f.submit 'Create new Listing', class:"btn btn-add" %>
   <% end %>
