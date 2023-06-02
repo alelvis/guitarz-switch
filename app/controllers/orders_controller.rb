@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     authorize @order
     if @order.status == "Upcoming"
       @order.destroy
-      redirect_back fallback_location: root_path, notice:  "Order was successfully canceled"
+      @order.user == current_user ? (redirect_to my_purchases_path, notice: "Order was successfully canceled") : (redirect_to my_sales_path, notice: "Order was successfully canceled")
     elsif @order.status == "Active"
       redirect_back fallback_location: root_path, alert:  "Active order cannot be canceled"
     else
