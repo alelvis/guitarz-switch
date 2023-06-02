@@ -7,9 +7,8 @@
       <li>Start Date<span><%= @order.start_date %></span></li>
       <li>End Date<span><%= @order.end_date %></span></li>
       </ul>
+      <%= link_to 'Back', url_for(:back), class: 'btn-third mtb-x' %>
+    | <%= link_to "Cancel", order_path(@order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn-danger custom-danger' %> |
   </div>
-
-<%= link_to 'Back', url_for(:back), class: 'btn-third mtb-x' %>
-<%= link_to "Cancel", order_path(@order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
 
 </div>
