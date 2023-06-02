@@ -7,9 +7,9 @@
     <%= render "shared/guitar_cards", guitars: @guitars %>
 
     <div class="my-listing-menu">
-        <%= link_to 'Add Guitar', new_guitar_path, class: 'btn-add' %>
-        <%= link_to 'rental history', my_sales_path, class: 'btn-secondary' %>
-        <%= link_to 'Back', '/my_guitars', class: 'btn-third' %>
+      <%= link_to 'Add Guitar', new_guitar_path, class: 'btn-add' %>
+      <%= link_to 'rental history', my_sales_path, class: 'btn-secondary' %>
+      <%= link_to 'Back', root_path, class: 'btn-third' %>
     </div>
   </div>
 

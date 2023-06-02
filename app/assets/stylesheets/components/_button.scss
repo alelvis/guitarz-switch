@@ -111,3 +111,14 @@
   border-radius: 0 0 4px 4px;
   display: block;
 }
+
+.custom-danger {
+  background-color: #ff0000;
+  color: var(--cor-0);
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
