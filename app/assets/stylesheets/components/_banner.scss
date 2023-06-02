@@ -4,14 +4,20 @@
   background-repeat: no-repeat;
   background-position: 50% 70%;
   background-attachment: fixed;
-  padding: 260px 0;
+  padding: 200px 0;
 }
 
 .banner-info {
 
-  background-color: var(--cor-1);
+  background-color: var(--cor-0);
   padding: 60px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
-  
+  width: 600px;
+}
 
+.buttons-home {
+
+  display: flex;
+  gap: 20px
 }
