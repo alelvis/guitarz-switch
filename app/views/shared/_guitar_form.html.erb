@@ -8,8 +8,8 @@
     <%= f.input :description, as: :text %>
     <%= f.input :material, placeholder: 'ex: Mahogany, Walnut, Maple...' %>
     <%= f.input :pickup %>
-    <%= f.input :right_handed, as: :boolean %>
-    <%= f.input :rental_city, placeholder: 'The city you are renting in' %>
+    <%= f.input :right_handed, legend_tag: false, as: :radio_buttons, collection: ['Right Handed', 'Left Handed'] %>
+    <%= f.input :rental_city, as: :select, collection: ['São Paulo', 'Rio de Janeiro'], placeholder: 'The city you are renting in' %>
     <%= f.input :price_per_day, as: :integer %>
     <%= f.submit 'Create new Listing', class: 'btn btn-primary' %>
   <% end %>
