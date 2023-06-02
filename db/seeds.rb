@@ -16,7 +16,7 @@ models = ["Explorer", "Les Paul", "Telecaster", "Stratocaster", "Jazzmaster", "A
 materials = ["Walnut", "Mahogany"]
 pickups = ["Classic Elite (H)", "V-MOD II"]
 countries = ["USA", "France", "Thailand"]
-cities = ["Sao Paulo", "Rio de Janeiro"]
+cities = ["São Paulo", "Rio de Janeiro"]
 
 Unsplash.configure do |config|
   config.application_access_key = ENV["ACCESS_KEYS"]
