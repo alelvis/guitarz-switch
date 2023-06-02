@@ -1,9 +1,9 @@
 <div class="cards">
   <% guitars.each do |guitar| %>
     <div class="card-product">
-      <% if guitar.photos[0] %>
-        <%= cl_image_tag guitar.photos[0].key, class:"product-image" %>
-      <% end %>
+    <% if guitar.photos[0] %>
+      <%= cl_image_tag(guitar.photos[0].key, class: 'product-image') %>
+    <% end %>
       <div class="card-product-infos">
         <div>
           <h3><%= guitar.name %></h3>

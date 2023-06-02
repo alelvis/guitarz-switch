@@ -38,11 +38,11 @@ class GuitarsController < ApplicationController
 
   def destroy
     authorize @guitar
-    if params[:start_date].present? && params[:end_date].present?
-      redirect_to guitars_path, notice: "Cannnot remove rented Guitar"
-    else
+    if @guitar.can_be_deleted?
       @guitar.destroy
-      redirect_to guitars_path, notice: "Guitar listing was successfully removed"
+      redirect_to my_guitars_path, notice: "Guitar was successfully destroyed."
+    else
+      redirect_to guitars_path, notice: "Cannot delete rented guitar."
     end
   end
 
