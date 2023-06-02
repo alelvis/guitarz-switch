@@ -29,6 +29,10 @@ class GuitarsController < ApplicationController
     @guitars
   end
 
+  def search
+    @models = Model.search_by_city(params[:city])
+  end
+  
   def my_guitars
     @guitars = policy_scope(Guitar).where(user: current_user)
     @guitars.order!(id: :desc)
