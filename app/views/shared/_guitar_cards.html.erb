@@ -16,7 +16,7 @@
         </div>
       <span class="price">R$ <%= guitar.price_per_day %> </span>
       </div>
-      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card-2" %>
+      <%= link_to "View Details", guitar_path(guitar), class:"btn-rent btn-card-2 btn-card-3" %>
       <% if policy(guitar).edit? %>
         <%= link_to "Edit", edit_guitar_path(guitar), class:"btn-card btn-secondary" %>
       <% end %>
