@@ -31,21 +31,26 @@
         <p class="not-available">Available <%= @guitar.next_availability.strftime("%d/%m/%y")%></p>
       <% end %>
       <div>
-      <% if policy(@guitar).edit? %>
-        <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-primary' %> |
-        <% if policy(@guitar).destroy? %>
-          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'custom-danger' %> |
+      <% if user_signed_in? %>
+
+        <% if policy(@guitar).edit? %>
+          <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-primary' %> |
+          <% if policy(@guitar).destroy? %>
+            <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'custom-danger' %> |
+          <% end %>
+        <% else %>
+          <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
+            <%= simple_form_for [@guitar, @order] do |f| %>
+              <div class='d-flex gap-3'>
+                <%= f.input :start_date, label: 'Rental Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
+                <%= f.input :end_date, label: 'Return Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
+              </div>
+              <%= f.submit "Rent Guitar", class: "btn btn-rent" %>
+            <% end %>
+          </div>
         <% end %>
       <% else %>
-        <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
-          <%= simple_form_for [@guitar, @order] do |f| %>
-            <div class='d-flex gap-3'>
-              <%= f.input :start_date, label: 'Rental Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
-              <%= f.input :end_date, label: 'Return Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
-            </div>
-            <%= f.submit "Rent Guitar", class: "btn btn-rent" %>
-          <% end %>
-        </div>
+        <%= link_to "Login to rent", new_user_session_path, class: "btn-secondary" %>
       <% end %>
       </div>
       <div class="details">
