@@ -20,6 +20,18 @@ class Guitar < ApplicationRecord
     current_rental.empty?
   end
 
+  def next_availability
+    current_rental = Order.where(guitar: self).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
+    available = false
+    until available
+      next_date = current_rental.first.end_date + 1
+      p next_date
+      current_rental = Order.where(guitar: self).where('start_date = ? OR start_date + 1 = ?', next_date, next_date)
+      available = true if current_rental.empty?
+    end
+    next_date
+  end
+
   def unavailable_dates
     orders.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
@@ -27,10 +39,6 @@ class Guitar < ApplicationRecord
   end
 
   def can_be_deleted?
-    if orders.upcoming_or_current.exists?
-      return false
-    else
-      return true
-    end
+    orders.all? { |order| order.status == "Concluded" }
   end
 end
