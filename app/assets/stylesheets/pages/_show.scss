@@ -44,9 +44,9 @@ h1 {
 h1::before {
   content: "";
   display: inline-block;
-  height: 6px;
-  width: 8px;
-  margin-right: 8px;
+  height: 4px;
+  width: 12px;
+  margin-right: 6px;
   background-color: var(--cor-p1);
   transition: width 0.2s;
   position: relative;
