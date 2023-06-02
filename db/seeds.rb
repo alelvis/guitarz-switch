@@ -48,7 +48,7 @@ User.all.each do |user|
         right_handed: true,
         year: year,
         country: countries.sample,
-        price_per_day: rand(10..500),
+        price_per_day: rand(1000..50_000),
         rental_city: cities.sample,
         user: user
       )

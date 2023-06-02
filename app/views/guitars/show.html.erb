@@ -24,7 +24,7 @@
     <div class="product-info">
       <h1><%= @guitar.name %></h1>
       <p><%= @guitar.description %></p>
-      <span class="price">  R$ <%= @guitar.price_per_day %></span>
+      <span class="price"> <%= number_to_currency(@guitar.price_per_day / 100.0, unit: "R$ ", delimiter: "") %></span>
       <% if @guitar.available?%>
         <p class="available">Available</p>
       <% else %>
