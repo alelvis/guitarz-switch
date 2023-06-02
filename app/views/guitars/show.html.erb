@@ -32,12 +32,8 @@
       <% end %>
       <div>
       <% if user_signed_in? %>
-
         <% if policy(@guitar).edit? %>
-          <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-primary' %> |
-          <% if policy(@guitar).destroy? %>
-            <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'custom-danger' %> |
-          <% end %>
+          <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-card-4 btn-secondary' %> |
         <% else %>
           <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
             <%= simple_form_for [@guitar, @order] do |f| %>
@@ -68,6 +64,9 @@
           </ul>
         </div>
       </div>
+        <% if policy(@guitar).destroy? %>
+          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn-rent mt-4' %>
+        <% end %>
     </div>
   </div>
 </div>

@@ -20,9 +20,8 @@
 
 .rental-card {
 
-  display: flex;
-  flex-basis: auto;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px;
   padding: 20px;
   background-color: var(--cor-0);
@@ -31,3 +30,4 @@
 
 
 }
+
