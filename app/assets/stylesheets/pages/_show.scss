@@ -77,6 +77,8 @@ p {
 
 }
 
+}
+
 .available {
 
   background-color: #24ff4c5c;
@@ -88,14 +90,20 @@ p {
 
 .not-available {
 
+  background-color: #f2ef3da4;
+  color: #5b430a;
+  padding: 2px 8px;
+  border-radius: 50px;
+  display: inline-block;
+
+}
+
+.not-not-available {
   background-color: #ff3d6141;
   color: #6E081A;
   padding: 2px 8px;
   border-radius: 50px;
   display: inline-block;
-}
-
-
 }
 
 .details {

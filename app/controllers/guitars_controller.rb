@@ -1,6 +1,6 @@
 class GuitarsController < ApplicationController
   before_action :set_guitar, only: %i[destroy show edit update]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   after_action :skip_authorization, only: %i[my_guitars]
   after_action :verify_policy_scoped, only: %i[my_guitars], unless: :skip_pundit?
@@ -32,7 +32,7 @@ class GuitarsController < ApplicationController
   def search
     @models = Model.search_by_city(params[:city])
   end
-  
+
   def my_guitars
     @guitars = policy_scope(Guitar).where(user: current_user)
     @guitars.order!(id: :desc)
