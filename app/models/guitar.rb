@@ -35,6 +35,14 @@ class Guitar < ApplicationRecord
     next_date
   end
 
+  def price_per_day=(value)
+    # Remove any non-digit characters from the value
+    sanitized_value = value.to_s.gsub(",", ".").gsub(/[^0-9.]/,'')
+
+    # Convert the decimal value to cents and store as an integer
+    self[:price_per_day] = (sanitized_value.to_f * 100).to_i
+  end
+
   def unavailable_dates
     orders.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
