@@ -21,6 +21,7 @@
 .rental-card {
 
   display: flex;
+  flex-basis: auto;
   flex-wrap: nowrap;
   gap: 40px;
   padding: 20px;

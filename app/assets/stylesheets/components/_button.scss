@@ -15,9 +15,6 @@
   color: var(--cor-0);
 }
 
-.btn-card {
-  border-radius: 0 0 4px 4px;
-}
 
 .btn-primary {
   background-color: var(--cor-p1);
@@ -103,4 +100,14 @@
   display: block;
   text-decoration: none;
   text-align: center;
+}
+
+.btn-card {
+  border-radius: 0 0 4px 4px;
+  display: block;
+}
+
+.btn-card-2 {
+  border-radius: 0 0 4px 4px;
+  display: block;
 }

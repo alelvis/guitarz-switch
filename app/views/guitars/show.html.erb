@@ -25,7 +25,11 @@
       <h1><%= @guitar.name %><span class="bullet-title">.</span></h1>
       <p><%= @guitar.description %></p>
       <span class="price">  R$ <%= @guitar.price_per_day %></span>
-      <p><%= @guitar.available? ? 'Available' : 'Not Available' %></p>
+      <% if @guitar.available?%>
+        <p class="available">Available</p>
+      <% else %>
+        <p class="not-available">Not Available</p>
+      <% end %>
       <% if policy(@guitar).edit? %>
         <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn btn-primary' %> |
         <% if policy(@guitar).destroy? %>
@@ -34,7 +38,7 @@
       <% else %>
         <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
           <%= simple_form_for [@guitar, @order] do |f| %>
-            <div class='d-flex'>
+            <div class='d-flex gap-3'>
               <%= f.input :start_date, label: 'Rental Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
               <%= f.input :end_date, label: 'Return Date', as: :string, type: :text, input_html: {class: 'datepicker'} %>
             </div>
@@ -43,7 +47,7 @@
         </div>
       <% end %>
       <div class="details">
-      <h3>Ficha Técnica</h3>
+      <h3>Technical Details</h3>
         <div class="details-list">
           <ul>
             <li>Brand<span><%= @guitar.brand %></span></li>

@@ -4,21 +4,23 @@
     <p class="font-2-l cor-5">Rent the best guitars and play your show</p>
   </div>
 </div>
+<div class="container container-p">
 
- <div class="row justify-content-center">
+<h2 class="font-1-xxl">Choose yours<span class="cor-p1">.</span></h2>
+
+
+ <div class="row mt-3 mb-3">
   <div class="col-sm-8 my-3">
-    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: root_path, method: :get, class: "d-flex gap-3" do %>
        <%= text_field_tag :query,
              params[:query], class: "form-control", placeholder: "Type a Brand or City" %>
         <%= date_field_tag :start_date, params[:start_date],  class: "form-control", placeholder: "Type date"%>
         <%= date_field_tag :end_date, params[:end_date],  class: "form-control", placeholder: "Type date"%>
-       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+       <%= submit_tag "Search", name: "", class: "btn btn-secondary" %>
      <% end %>
    </div>
  </div>
 
 
-<div class="container container-p">
-<h2 class="font-1-xxl">Choose yours<span class="cor-p1">.</span></h2>
   <%= render "shared/guitar_cards", guitars: @guitars %>
 </div>
