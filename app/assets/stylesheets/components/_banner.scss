@@ -1,11 +1,17 @@
 .banner {
   background-size: cover;
-  background: url(banner_2.webp);
+  background: url(imagem-capa-3.jpg);
   background-repeat: no-repeat;
   background-position: 50% 70%;
   background-attachment: fixed;
   padding: 260px 0;
+}
 
+.banner-info {
 
+  background-color: var(--cor-1);
+  padding: 60px;
+  border-radius: 4px;
+  
 
 }
