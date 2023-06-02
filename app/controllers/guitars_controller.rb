@@ -8,11 +8,9 @@ class GuitarsController < ApplicationController
   def index
     rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).map(&:guitar)
     rented_for_a_while = rented_guitars.reject { |guitar| guitar.next_availability <= Date.today + 15 }
-    if params[:query].present?
-      @guitars = @guitars.search_brand_and_city(params[:query])
-    else
-      @guitars = policy_scope(Guitar)
-    end
+    @guitars = policy_scope(Guitar)
+    @guitars = @guitars.search_brand_and_city(params[:query]) if params[:query].present?
+    @guitars = @guitars.search_by_city(params[:rental_city]) if params[:rental_city].present?
     if params[:start_date].present? && params[:end_date].present?
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
@@ -27,10 +25,6 @@ class GuitarsController < ApplicationController
     end
     @guitars.order!(id: :desc)
     @guitars
-  end
-
-  def search
-    @models = Model.search_by_city(params[:city])
   end
 
   def my_guitars

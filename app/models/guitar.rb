@@ -28,7 +28,6 @@ class Guitar < ApplicationRecord
     available = false
     until available
       next_date = current_rental.first.end_date + 1
-      p next_date
       current_rental = Order.where(guitar: self).where('start_date = ? OR start_date + 1 = ?', next_date, next_date)
       available = true if current_rental.empty?
     end
