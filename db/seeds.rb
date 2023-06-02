@@ -34,7 +34,7 @@ User.all.each do |user|
       model = models[0..1].sample
     when 1
       model = models[2..4].sample
-    when
+    when 2
       model = models[5]
     end
 
@@ -54,7 +54,7 @@ User.all.each do |user|
       )
 
 
-    rand(2..3).times do
+    rand(2..4).times do
       guitar_photo = Unsplash::Photo.random(query: "#{guitar.brand} guitar")
       if guitar_photo.present?
         guitar.photos.attach(io: URI.open(guitar_photo.urls.regular), filename: "guitar_photo.jpg")
