@@ -13,6 +13,10 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
+  def destroy?
+    record.user == user || record.guitar.user == user
+  end
+
   def my_purchases?
     false
   end

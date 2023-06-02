@@ -3,11 +3,13 @@
   <div class="details-list">
     <ul>
       <li>Price<span>R$ <%= @order.price %></span></li>
+      <li>Status<span><%= @order.status %></span></li>
       <li>Start Date<span><%= @order.start_date %></span></li>
       <li>End Date<span><%= @order.end_date %></span></li>
       </ul>
   </div>
-  
+
 <%= link_to 'Back', url_for(:back), class: 'btn-third mtb-x' %>
+<%= link_to "Cancel", order_path(@order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
 
 </div>
