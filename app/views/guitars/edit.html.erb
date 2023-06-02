@@ -1,7 +1,9 @@
-<h1>Edit Guitar</h1>
+<div class="container container-p">
 
-<div class='container'>
-  <%= render "shared/guitar_form", guitar: @guitar %>
+  <div class="card-edit-user">
+    <h1 class="font-1-xxl mb-x">Edit Guitar<span class="cor-p1">.</span></h1>
+    <%= render "shared/guitar_form", guitar: @guitar %>
+    <%= link_to "Back", guitar_path(@guitar), class: 'btn-secondary mt-3' %>
+  </div>
+  
 </div>
-
-<%= link_to "Back", guitar_path(@guitar), class: 'btn btn-secondary' %>

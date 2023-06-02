@@ -1,13 +1,16 @@
 <div class="container container-p">
+
   <h1 class="font-1-xxl mb-x">My guitars<span class="cor-p1">.</span></h1>
 
   <div class="my-listing-grid">
+  
+    <%= render "shared/guitar_cards", guitars: @guitars %>
+
     <div class="my-listing-menu">
       <%= link_to 'Add Guitar', new_guitar_path, class: 'btn-add' %>
       <%= link_to 'rental history', my_sales_path, class: 'btn-secondary' %>
       <%= link_to 'Back', root_path, class: 'btn-third' %>
     </div>
-    <%= render "shared/guitar_cards", guitars: @guitars %>
   </div>
 
 </div>
