@@ -8,8 +8,10 @@
         <div>
           <h3><%= guitar.name %></h3>
           <p><%= guitar.rental_city %></p>
-          <% if policy(guitar).edit? %>
-            <p class="available"><%= guitar.available? ? 'Available' : 'Not Available' %></p>
+          <% if guitar.available?%>
+            <p class="available">Available</p>
+          <% else %>
+            <p class="not-available">Available <%= guitar.next_availability.strftime("%d/%m/%y")%></p>
           <% end %>
         </div>
         <span class="price">R$ <%= guitar.price_per_day %> </span>
