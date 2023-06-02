@@ -3,10 +3,11 @@
   <div class="rental-card">
     <h3><%= order.guitar.name%></h3>
     <div class="order-date">
-    <p>start date: <%= order.start_date%></p>
-    <p>end date: <%= order.end_date%></p>
+    <p>Status: <%= order.status%></p>
     </div>
-
+    <% if order.status == "Upcoming" && policy(order).destroy? %>
+      <%= link_to "Cancel", order_path(order), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
+    <% end %>
     <%= link_to "Order details", order_path(order), class: 'btn-primary' %>
   </div>
   <% end %>

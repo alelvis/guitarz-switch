@@ -12,18 +12,17 @@ class GuitarsController < ApplicationController
     if params[:query].present?
       @guitars = @guitars.search_brand_and_city(params[:query])
     end
-    if params[:start_date].present? && params[:end_date].present?
-      start_date = Date.parse(params[:start_date])
-      end_date = Date.parse(params[:end_date])
-      @guitars.select do |guitar|
-        range(start_date..end_date).all do |date|
-          current_rental = Order.where(guitar: guitar).where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
-          current_rental.empty?
-        end
-      end
-    else
+     if params[:start_date].present? && params[:end_date].present?
+       start_date = Date.parse(params[:start_date])
+       end_date = Date.parse(params[:end_date])
+       @guitars = @guitars.select do |guitar|
+         (start_date..end_date).all? do |date|
+           current_rental = Order.where(guitar:).where('start_date <= ? AND end_date >= ?', date, date)
+           current_rental.empty?
+         end
+       end
+     end
       @guitars
-    end
   end
 
   def my_guitars
@@ -38,9 +37,13 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
-    @guitar.destroy
     authorize @guitar
-    redirect_to guitars_path, notice: "Guitar was successfully destroyed"
+    if @guitar.can_be_deleted?
+      @guitar.destroy
+      redirect_to my_guitars_path, notice: "Guitar was successfully destroyed."
+    else
+      redirect_to guitars_path, notice: "Cannot delete rented guitar."
+    end
   end
 
   def edit

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show]
+  before_action :set_order, only: %i[show destroy]
   after_action :skip_authorization, only: %i[my_purchases my_sales]
   after_action :verify_policy_scoped, only: %i[my_purchases my_sales], unless: :skip_pundit?
 
@@ -15,6 +15,18 @@ class OrdersController < ApplicationController
 
   def show
     authorize @order
+  end
+
+  def destroy
+    authorize @order
+    if @order.status == "Upcoming"
+      @order.destroy
+      @order.user == current_user ? (redirect_to my_purchases_path, notice: "Order was successfully canceled") : (redirect_to my_sales_path, notice: "Order was successfully canceled")
+    elsif @order.status == "Active"
+      redirect_back fallback_location: root_path, alert:  "Active order cannot be canceled"
+    else
+      redirect_back fallback_location: root_path, alert:  "Concluded order cannot be canceled"
+    end
   end
 
   def create

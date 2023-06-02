@@ -2,15 +2,15 @@
 
 <div class="container container-p">
   <div class="grid-product">
-    <div class="product-media">
+    <div class="product-media" data-controller="picker">
       <% if @guitar.photos.attached? %>
         <div class="media-gallery">
-          <% @guitar.photos[0..].each do |photo|%>
-            <%= cl_image_tag photo.key, class:"product-image secondary-image", data: {controller: "picker", action:"click->picker#changeImage"} %>
+          <% @guitar.photos[1..].each do |photo|%>
+            <%= cl_image_tag photo.key, class:"product-image secondary-image", data: {action:"click->picker#changeImage"} %>
           <% end %>
         </div>
         <div id="bigger-image">
-          <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image" %>
+          <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image", data: {'picker-target': "pimage"} %>
         </div>
 
       <% else %>
