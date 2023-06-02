@@ -25,4 +25,12 @@ class Guitar < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  def can_be_deleted?
+    if orders.upcoming_or_current.exists?
+      return false
+    else
+      return true
+    end
+  end
 end

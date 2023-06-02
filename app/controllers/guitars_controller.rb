@@ -38,7 +38,7 @@ class GuitarsController < ApplicationController
 
   def destroy
     authorize @guitar
-    if @guitar.available?
+    if @guitar.can_be_deleted?
       @guitar.destroy
       redirect_to my_guitars_path, notice: "Guitar was successfully destroyed."
     else
