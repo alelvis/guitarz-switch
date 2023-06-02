@@ -38,9 +38,9 @@ class GuitarsController < ApplicationController
   end
 
   def destroy
-    @guitar.destroy
     authorize @guitar
-    redirect_to guitars_path, notice: "Guitar was successfully destroyed"
+    @guitar.destroy
+    redirect_to guitars_path, notice: "Guitar listing was successfully removed"
   end
 
   def edit
