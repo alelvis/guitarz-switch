@@ -6,23 +6,27 @@ class GuitarsController < ApplicationController
   after_action :verify_policy_scoped, only: %i[my_guitars], unless: :skip_pundit?
 
   def index
-    rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
-    @guitars = policy_scope(Guitar).where.not(id: rented_guitars.pluck(:id)).where.not(user: current_user)
-    @guitars.order!(id: :desc)
+    rented_guitars = Order.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).map(&:guitar)
+    rented_for_a_while = rented_guitars.reject { |guitar| guitar.next_availability <= Date.today + 15 }
     if params[:query].present?
       @guitars = @guitars.search_brand_and_city(params[:query])
+    else
+      @guitars = policy_scope(Guitar)
     end
-     if params[:start_date].present? && params[:end_date].present?
-       start_date = Date.parse(params[:start_date])
-       end_date = Date.parse(params[:end_date])
-       @guitars = @guitars.select do |guitar|
-         (start_date..end_date).all? do |date|
-           current_rental = Order.where(guitar:).where('start_date <= ? AND end_date >= ?', date, date)
-           current_rental.empty?
-         end
-       end
-     end
-      @guitars
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
+      @guitars = @guitars.select do |guitar|
+        (start_date..end_date).all? do |date|
+          current_rental = Order.where(guitar:).where('start_date <= ? AND end_date >= ?', date, date)
+          current_rental.empty?
+        end
+      end
+    else
+      @guitars = @guitars.where.not(id: rented_for_a_while.pluck(:id)).where.not(user: current_user)
+    end
+    @guitars.order!(id: :desc)
+    @guitars
   end
 
   def my_guitars
