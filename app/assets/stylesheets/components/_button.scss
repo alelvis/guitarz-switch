@@ -122,3 +122,11 @@
   text-decoration: none;
   text-align: center;
 }
+
+.custom-danger:hover {
+  background-color: var(--cor-p2);
+  transition: 0.5ms;
+  color: #ffffff;
+  transition: 0.5ms;
+
+}
