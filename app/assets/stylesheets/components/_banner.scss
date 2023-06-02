@@ -7,6 +7,16 @@
   padding: 200px 0;
 }
 
+.banner-logged {
+  background-size: cover;
+  background: url(imagem-capa-3.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-attachment: fixed;
+  height: 300px;
+  padding: 100px 0;
+}
+
 .banner-info {
 
   background-color: var(--cor-0);
@@ -14,6 +24,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
   width: 600px;
+}
+
+.banner-info-logged {
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  max-width: 600px;
+
 }
 
 .buttons-home {
