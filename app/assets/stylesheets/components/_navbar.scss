@@ -16,15 +16,4 @@
 
 }
 
-.nav-link:hover::after {
-  content: "";
-  display: inline-block;
-  height: 4px;
-  width: 18px;
-  background-color: var(--cor-p1);
-  transition: width 0.2s;
-  position: relative;
-  top: -16px;
-  left: 0;
 
- }
