@@ -30,10 +30,11 @@
       <% else %>
         <p class="not-available">Available <%= @guitar.next_availability.strftime("%d/%m/%y")%></p>
       <% end %>
+      <div>
       <% if policy(@guitar).edit? %>
-        <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn btn-primary' %> |
+        <%= link_to "Edit", edit_guitar_path(@guitar), class: 'btn-primary' %> |
         <% if policy(@guitar).destroy? %>
-          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> |
+          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'custom-danger' %> |
         <% end %>
       <% else %>
         <div id='guitar-booking-dates' data-controller='flatpickr' data-unavailable='<%=@guitar.unavailable_dates.to_json%>'>
@@ -46,6 +47,7 @@
           <% end %>
         </div>
       <% end %>
+      </div>
       <div class="details">
       <h3>Technical Details</h3>
         <div class="details-list">
