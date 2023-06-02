@@ -11,7 +11,7 @@
     <%= f.input :right_handed, legend_tag: false, as: :radio_buttons, collection: ['Right Handed', 'Left Handed'] %>
     <%= f.input :rental_city, as: :select, collection: ['São Paulo', 'Rio de Janeiro'], placeholder: 'The city you are renting in' %>
     <%= f.input :price_per_day, label: "Price per day (R$)", placeholder: 'ex: 45,30', input_html: { step: '0.01' } %>
-    <%= f.submit 'Create new Listing', class:"btn btn-add" %>
+    <%= f.submit guitar.id.nil? ? 'Create Listing' : 'Edit Listing', class:"btn btn-add" %>
   <% end %>
 
 <script>
