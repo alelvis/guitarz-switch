@@ -23,6 +23,7 @@ class GuitarsController < ApplicationController
     else
       @guitars = @guitars.where.not(id: rented_for_a_while.pluck(:id)).where.not(user: current_user)
     end
+    @guitars = Guitar.where(id: @guitars.map(&:id)).where.not(user: current_user)
     @guitars.order!(id: :desc)
     @guitars
   end
