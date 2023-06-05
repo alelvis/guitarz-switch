@@ -2,6 +2,9 @@
   overflow: hidden;
   background: white;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .card-product:hover {
@@ -20,12 +23,16 @@
 .card-product-infos {
 
   padding: 16px;
+  gap: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
 
   h3 {
   font-size: 18px;
   font-weight: bold;
+  max-width: 24ch;
 }
 
   h3::before {
@@ -42,6 +49,7 @@
   p {
     font-size: 14px;
     opacity: .7;
+    margin-bottom: 10px;
   }
 
 
@@ -57,3 +65,4 @@
   }
 
 }
+

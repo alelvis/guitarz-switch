@@ -9,9 +9,9 @@
         <h3><%= guitar.name %></h3>
         <p><%= guitar.rental_city %></p>
         <% if guitar.available?%>
-          <p class="available">Available</p>
+          <span class="available">Available</span>
         <% else %>
-          <p class="not-available">Available <%= guitar.next_availability.strftime("%d/%m/%y")%></p>
+          <span class="not-available">Available <%= guitar.next_availability.strftime("%d/%m/%y")%></span>
         <% end %>
         </div>
       <span class="price"><%= number_to_currency(guitar.price_per_day / 100.0, unit: "R$ ", delimiter: "") %> </span>

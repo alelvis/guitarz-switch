@@ -9,7 +9,7 @@
 
 .banner-logged {
   background-size: cover;
-  background: url(imagem-capa-3.jpg);
+  background: url(imagem-capa-logged.jpg);
   background-repeat: no-repeat;
   background-position: 50% 100%;
   background-attachment: fixed;
@@ -27,9 +27,25 @@
 }
 
 
-
 .buttons-home {
 
   display: flex;
   gap: 20px
 }
+
+@media (max-width: 800px) {
+  .banner {
+    background-size: cover;
+    background: url(imagem-capa-3.jpg);
+    background-repeat: no-repeat;
+    background-position: 0% 55%;
+    background-attachment: fixed;
+    padding: 200px 0;
+
+  }
+
+  .banner-info p {
+
+    max-width: 10ch;
+  }
+  }

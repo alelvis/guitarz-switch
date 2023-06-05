@@ -149,3 +149,25 @@ ul {
     opacity: 0.7;
   }
 }
+
+
+@media (max-width: 800px) {
+  .grid-product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+   }
+
+   .product-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: 100%;
+  }
+
+  .product-image {
+    width: 100%;
+    
+  }
+
+}

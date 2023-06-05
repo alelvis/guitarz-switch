@@ -2,12 +2,22 @@
   width: 100vw;
   background-color: var(--cor-11);
   padding: 20px 0;
+
 }
 
 
 .footer-grid {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+
+@media (max-width: 800px) {
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+  }
 }
