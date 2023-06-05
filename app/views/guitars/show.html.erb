@@ -9,10 +9,10 @@
             <%= cl_image_tag photo.key, class:"product-image secondary-image", data: {action:"click->picker#changeImage"} %>
           <% end %>
         </div>
-        <div id="bigger-image">
-          <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image", data: {'picker-target': "pimage"} %>
-        </div>
+                <div id="bigger-image">
 
+      <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image", data: {'picker-target': "pimage"} %>
+</div>
       <% else %>
         <div>
           <%= image_tag "guitar.webp", class: "product-image primary-image" %>
