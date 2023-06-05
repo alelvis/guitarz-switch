@@ -4,6 +4,10 @@
   flex-direction: column;
   gap: 40px;
 
+  h3 {
+    font-size: 20px;
+  }
+
   h3::before {
     content: "";
     display: inline-block;
@@ -31,3 +35,13 @@
 
 }
 
+
+
+@media (max-width: 800px) {
+  .rental-card {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
+  }

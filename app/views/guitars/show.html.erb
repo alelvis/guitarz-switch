@@ -1,6 +1,6 @@
 <% "random text" %>
 
-<div class="container container-p">
+<div class="container mt-5 mb-5">
   <div class="grid-product">
     <div class="product-media" data-controller="picker">
       <% if @guitar.photos.attached? %>
@@ -9,10 +9,10 @@
             <%= cl_image_tag photo.key, class:"product-image secondary-image", data: {action:"click->picker#changeImage"} %>
           <% end %>
         </div>
-        <div id="bigger-image">
-          <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image", data: {'picker-target': "pimage"} %>
-        </div>
+                <div id="bigger-image">
 
+      <%= cl_image_tag @guitar.photos[0].key, class:"product-image primary-image", data: {'picker-target': "pimage"} %>
+</div>
       <% else %>
         <div>
           <%= image_tag "guitar.webp", class: "product-image primary-image" %>
@@ -65,7 +65,7 @@
         </div>
       </div>
         <% if policy(@guitar).destroy? %>
-          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn-rent mt-4' %>
+          <%= link_to "Delete", guitar_path(@guitar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn-delete mt-4' %>
         <% end %>
     </div>
   </div>

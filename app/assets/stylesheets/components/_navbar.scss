@@ -16,4 +16,35 @@
 
 }
 
+.nav-link:hover {
+  color: var(--cor-p1);
+  transition: 0.5ms;
 
+ }
+
+.nav-link::after {
+  content: "";
+  display: inline-block;
+  height: 14px;
+  width: 2px;
+  margin-left: 14px;
+  background-color: var(--cor-4);
+  transition: width 0.2s;
+  position: relative;
+  top: 2px;
+
+}
+
+
+ .nav-link:last-child > a::after {
+    display: none;
+ }
+
+
+ @media (max-width: 800px) {
+
+  .nav-link::after {
+    display: none;
+
+ }
+}

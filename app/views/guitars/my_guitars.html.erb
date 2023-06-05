@@ -1,9 +1,10 @@
-<div class="container container-p">
+<div class="container mt-5 mb-5">
+  <div class="flex-intro">
 
-  <h1 class="font-1-xxl mb-x">My guitars<span class="cor-p1">.</span></h1>
-  <div class="d-flex justify-content-end">
-  <%= link_to 'Add Guitar', new_guitar_path, class: 'btn-add mb-5' %>
-</div>
+    <h1 class="font-1-xxl mb-x">My guitars<span class="cor-p1">.</span></h1>
+    <%= link_to 'Add Guitar', new_guitar_path, class: 'btn-add mb-5' %>
+
+  </div>
 
   <div class="my-listing-grid">
 
@@ -11,7 +12,6 @@
 
     <div class="my-listing-menu">
         <%= link_to 'Rental history', my_sales_path, class: 'btn-secondary' %>
-        <%= link_to 'Back', '/my_guitars', class: 'btn-third' %>
     </div>
   </div>
 

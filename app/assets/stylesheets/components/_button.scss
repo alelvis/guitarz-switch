@@ -102,6 +102,13 @@
   text-align: center;
 }
 
+.btn-delete:hover {
+  background-color: #e00000;
+  color: var(--cor-0);
+  transition: 0.5ms;
+
+}
+
 .btn-card {
   border-radius: 0 0 4px 4px;
   display: block;

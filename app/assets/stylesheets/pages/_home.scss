@@ -8,3 +8,20 @@ gap: 40px;
 h2 {
   margin-bottom: 40px;
 }
+
+
+@media (max-width: 800px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    }
+
+
+    .form-grid {
+      grid-template-columns: 1fr;
+      margin-bottom: 40px;
+    }
+
+
+}
