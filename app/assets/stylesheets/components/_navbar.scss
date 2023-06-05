@@ -16,6 +16,12 @@
 
 }
 
+.nav-link:hover {
+  color: var(--cor-p1);
+  transition: 0.5ms;
+
+ }
+
 .nav-link::after {
   content: "";
   display: inline-block;
@@ -34,3 +40,12 @@
   }
 
  }
+
+
+ @media (max-width: 800px) {
+
+  .nav-link::after {
+    display: none;
+
+ }
+}
