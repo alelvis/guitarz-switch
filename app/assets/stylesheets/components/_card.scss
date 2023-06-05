@@ -63,6 +63,20 @@
     letter-spacing: -1px;
 
   }
+}
+
+
+@media (max-width: 800px) {
+
+
+  .card-product-infos h3 {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 16px;
+
+  }
 
 }
 
