@@ -33,12 +33,11 @@
   position: relative;
   top: 2px;
 
-  .last::after {
+}
 
-    display: none !important;
 
-  }
-
+ .nav-link:last-child > a::after {
+    display: none;
  }
 
 
