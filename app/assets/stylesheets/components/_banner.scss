@@ -7,6 +7,7 @@
   padding: 200px 0;
 }
 
+
 .banner-logged {
   background-size: cover;
   background: url(imagem-capa-logged.jpg);
@@ -24,6 +25,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
   width: 600px;
+}
+
+.banner-info p {
+max-width: 30ch;
 }
 
 
