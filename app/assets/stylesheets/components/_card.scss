@@ -23,16 +23,16 @@
 .card-product-infos {
 
   padding: 16px;
-  gap: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   flex: 1;
 
   h3 {
   font-size: 18px;
   font-weight: bold;
-  max-width: 24ch;
+  text-transform: capitalize;
+  margin-bottom: 5px;
 }
 
   h3::before {
@@ -50,11 +50,18 @@
     font-size: 14px;
     opacity: .7;
     margin-bottom: 10px;
-  }
+    text-transform: capitalize;
 
+  }
+}
 
   .price {
     font-size: 18px;
+    margin: 0;
+    justify-self: end;
+    align-self: start;
+
+
   }
   .price::after {
     content:' per day';
@@ -63,20 +70,15 @@
     letter-spacing: -1px;
 
   }
-}
+
 
 
 @media (max-width: 800px) {
 
 
-  .card-product-infos h3 {
-    font-size: 16px;
-  }
-
-  .price {
+  .card-product-infos .price {
     font-size: 16px;
 
   }
 
 }
-
