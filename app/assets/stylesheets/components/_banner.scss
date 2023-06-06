@@ -45,7 +45,7 @@ max-width: 30ch;
     background-repeat: no-repeat;
     background-position: 0% 55%;
     background-attachment: fixed;
-    padding: 200px 0;
+    padding: 80px 0;
 
   }
 
@@ -57,5 +57,19 @@ max-width: 30ch;
   .banner-info-logged p {
 
     max-width: 25ch;
+  }
+
+  .banner-info {
+
+
+    width: auto;
+  }
+
+  .buttons-home .btn-primary {
+    font-size: 16px;
+  }
+
+  .buttons-home .btn-secondary {
+    font-size: 16px;
   }
   }
